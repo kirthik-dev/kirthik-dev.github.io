@@ -1,74 +1,62 @@
 
-import { motion, Variants, TargetAndTransition } from "framer-motion";
-import { Code, Database, BarChart, Cloud, Wind } from "lucide-react";
-import { Progress } from "@/components/ui/progress";
+import { motion } from "framer-motion";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-const skills = [
-  { name: "Python", icon: Code, level: 95 },
-  { name: "PySpark", icon: Code, level: 90 },
-  { name: "SQL", icon: Database, level: 90 },
-  { name: "GCP", icon: Cloud, level: 85 },
-  { name: "Power BI", icon: BarChart, level: 80 },
-  { name: "Airflow", icon: Wind, level: 80 },
-];
-
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
+const skillCategories = [
+  {
+    title: "Programming & Development 💻",
+    descriptor: "Crafting elegant solutions and bringing ideas to life with code.",
+    skills: ["Python", "SQL", "DAX", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "TensorFlow", "Keras", "Flask", "Requests", "psycopg2", "Spotipy", "VS Code", "PyCharm", "GitHub", "Jupyter Notebook", "Anaconda", "Git"],
   },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.5 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { type: "spring", stiffness: 300, damping: 20 },
-  } as TargetAndTransition,
-};
+  {
+    title: "Data Science & Analytics 🔬",
+    descriptor: "Uncovering hidden stories and insights from complex datasets.",
+    skills: ["Data Pre-Processing", "Machine Learning", "NLP", "Deep Learning", "EDA", "Feature Engineering", "Hyper-Parameter Tuning", "Data Visualization", "PySpark", "Apache Spark", "Hadoop"],
+  },
+  {
+    title: "Data Infrastructure & The Cloud ☁️",
+    descriptor: "Building robust, scalable pipelines to keep data flowing.",
+    skills: ["PostgreSQL", "BigQuery", "Fact & Dimension Tables", "LangGraph", "Apache Airflow", "GCP", "FastAPI"],
+  },
+  {
+    title: "Business Intelligence & Storytelling 📊",
+    descriptor: "Transforming raw data into compelling visual narratives.",
+    skills: ["Power BI", "Tableau", "Power Query Editor", "Google Data Studio"],
+  },
+];
 
 export function Skills() {
   return (
     <section id="skills" className="py-24 sm:py-32 bg-secondary/50">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
-          Skills & Tools
+          My Tech Toolkit
         </h2>
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12"
-        >
-          {skills.map((skill) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {skillCategories.map((category, index) => (
             <motion.div
-              key={skill.name}
-              variants={itemVariants}
-              className="flex flex-col items-center justify-center p-6 bg-background rounded-full aspect-square shadow-md animate-pulse-slow"
+              key={category.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <skill.icon className="h-8 w-8 text-primary mb-2" />
-              <p className="font-medium text-sm text-center">{skill.name}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-        <div className="space-y-4 max-w-4xl mx-auto">
-          {skills.map((skill) => (
-             <motion.div 
-               key={`${skill.name}-progress`}
-               initial={{ opacity: 0, x: -50 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true, amount: 0.5 }}
-               transition={{ duration: 0.5 }}
-             >
-              <div className="flex justify-between mb-1">
-                <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                <span className="text-xs font-medium text-muted-foreground">{skill.level}%</span>
-              </div>
-              <Progress value={skill.level} className="w-full" />
+              <Card className="h-full flex flex-col bg-background/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">{category.title}</CardTitle>
+                  <CardDescription className="pt-2">{category.descriptor}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col justify-end">
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <Badge key={skill} variant="secondary" className="font-normal">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
