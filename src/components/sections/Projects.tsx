@@ -41,7 +41,7 @@ const projects: Project[] = [
   },
   {
     title: "Spotify User Behavior Analytics Pipeline",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400",
+    image: "/lovable-uploads/68526ab1-ef69-40fe-b840-8c7f62fdc405.png",
     details: [
       "Extracted and processed 200K+ tracks and session records using the Spotipy API.",
       "Cleaned and structured data using Pandas, boosting ETL throughput by 25%.",
