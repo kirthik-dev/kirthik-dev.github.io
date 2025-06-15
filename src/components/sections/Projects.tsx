@@ -9,9 +9,17 @@ import {
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 
-const projects = [
+interface Project {
+  title: string;
+  image: string;
+  details: string[];
+  tags: string[];
+}
+
+const projects: Project[] = [
   {
     title: "AI-Powered Blog Generation & Translation Pipeline",
+    image: "/lovable-uploads/6bfabb44-4b36-491b-b200-d91c5f0a15d3.png",
     details: [
       "Structured a modular FastAPI project using uv for clean graph-based workflow management.",
       "Built and connected LangGraph nodes to generate, structure, and translate blogs dynamically.",
@@ -22,6 +30,7 @@ const projects = [
   },
   {
     title: "Scalable Uber Data Analytics Pipeline on GCP",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400",
     details: [
       "Engineered a daily ETL pipeline to process 5M+ Uber trip records using Python and Mage on Google Cloud.",
       "Designed a star-schema with fact and dimension tables, reducing BigQuery query latency by 40%.",
@@ -32,6 +41,7 @@ const projects = [
   },
   {
     title: "Spotify User Behavior Analytics Pipeline",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400",
     details: [
       "Extracted and processed 200K+ tracks and session records using the Spotipy API.",
       "Cleaned and structured data using Pandas, boosting ETL throughput by 25%.",
@@ -63,7 +73,12 @@ export function Projects() {
               {projects.map((project, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1 h-full">
-                    <Card className="flex flex-col h-full bg-background/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+                    <Card className="flex flex-col h-full bg-background/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 transition-shadow duration-300 overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-40 object-cover"
+                      />
                       <CardHeader>
                         <CardTitle className="text-lg">{project.title}</CardTitle>
                       </CardHeader>
