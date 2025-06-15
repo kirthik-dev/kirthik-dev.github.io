@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -46,7 +45,7 @@ export function Contact() {
   const { isSubmitting } = form.formState;
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const { error } = await supabase.from("contacts").insert(values);
+    const { error } = await supabase.from("contacts").insert([values]);
 
     if (error) {
       console.error(error);
