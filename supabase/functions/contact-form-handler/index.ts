@@ -5,7 +5,7 @@ import { Resend } from "npm:resend@2.0.0";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 // IMPORTANT: Replace this with the email address you want to receive contact form submissions.
-const TO_EMAIL = "your-email@example.com";
+const TO_EMAIL = "kirthi.mech@gmail.com";
 const FROM_EMAIL = "onboarding@resend.dev"; // This must be a verified domain on Resend.
 
 const corsHeaders = {
