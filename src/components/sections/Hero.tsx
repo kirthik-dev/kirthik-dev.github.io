@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex h-screen flex-col items-center justify-center text-center text-white"
+      className="relative flex h-screen flex-col items-center justify-center text-center text-foreground"
     >
       <div className="absolute inset-0 animated-gradient -z-10" />
       <div className="absolute inset-0 bg-black/50 -z-10" />
@@ -22,7 +22,7 @@ export function Hero() {
         <p className="mt-3 text-lg md:text-xl text-primary font-medium tracking-wide">
           Engineering Data, Crafting Intelligence
         </p>
-        <div className="mt-6 text-base md:text-lg text-primary-foreground/80 h-14 md:h-7">
+        <div className="mt-6 text-base md:text-lg text-secondary-foreground h-14 md:h-7">
           <TypeAnimation
             sequence={[
               "Crafting scalable ETL pipelines with Python & PySpark.",
