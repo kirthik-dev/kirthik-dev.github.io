@@ -11,7 +11,7 @@ export function Hero() {
       className="relative flex h-screen flex-col items-center justify-center text-center text-white"
     >
       <div className="absolute inset-0 animated-gradient -z-10" />
-      <div className="absolute inset-0 bg-black/30 -z-10" />
+      <div className="absolute inset-0 bg-black/50 -z-10" />
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider">
           Kirthik B
