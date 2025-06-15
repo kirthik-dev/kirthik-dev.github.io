@@ -8,7 +8,27 @@ import {
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const courseCategories = [
+type Course = {
+  title: string;
+  provider: string;
+  date: string;
+};
+
+type Training = Course & {
+  link?: string;
+};
+
+type CourseCategory = {
+  category: string;
+  courses: Course[];
+};
+
+type TrainingCategory = {
+  category: string;
+  trainings: Training[];
+};
+
+const courseCategories: CourseCategory[] = [
     {
         category: "Data Engineering",
         courses: [
@@ -33,7 +53,7 @@ const courseCategories = [
     }
 ];
 
-const trainingCategories = [
+const trainingCategories: TrainingCategory[] = [
     {
         category: "Workshops",
         trainings: [
@@ -45,6 +65,12 @@ const trainingCategories = [
         category: "Bootcamps",
         trainings: [
             { title: "Data Engineering Bootcamp", provider: "DataTalks.Club", date: "2023" },
+        ]
+    },
+    {
+        category: "Internships",
+        trainings: [
+            { title: "Data Science Internship", provider: "SmartKnower", date: "2023", link: "/lovable-uploads/e27d5d26-54ee-4188-a894-b5ab7530f32d.png" },
         ]
     }
 ];
@@ -103,11 +129,18 @@ export function Education() {
                             <AccordionContent>
                                <ul className="space-y-2 pl-4">
                                 {category.trainings.map(training => (
-                                    <li key={training.title} className="flex justify-between text-sm">
+                                    <li key={training.title} className="flex justify-between items-center text-sm">
                                         <span>
                                             <span className="font-semibold">{training.title}</span> - <span className="text-muted-foreground">{training.provider}</span>
                                         </span>
-                                        <span className="font-mono text-xs">{training.date}</span>
+                                        <div className="flex items-center gap-4">
+                                            {training.link && (
+                                                <a href={training.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-xs font-medium">
+                                                    View Certificate
+                                                </a>
+                                            )}
+                                            <span className="font-mono text-xs">{training.date}</span>
+                                        </div>
                                     </li>
                                 ))}
                                </ul>
