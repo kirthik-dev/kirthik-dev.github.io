@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
 const certifications = [
   {
@@ -28,28 +29,23 @@ const itemVariants = {
   visible: { opacity: 1, scale: 1 },
 };
 
-const FlipCard = ({ cert }: { cert: (typeof certifications)[0] }) => (
-  <div className="group w-full h-48 [perspective:1000px]">
-    <div className="relative h-full w-full rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-      <div className="absolute inset-0 bg-background rounded-xl flex flex-col items-center justify-center p-4 text-center">
-        <img src={cert.logo} alt={cert.name} className="h-12 mb-2" />
-        <h3 className="font-bold text-sm">{cert.name}</h3>
-        <p className="text-xs text-muted-foreground">{cert.issuer}</p>
-      </div>
-      <div className="absolute inset-0 h-full w-full rounded-xl bg-primary text-primary-foreground [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col items-center justify-center p-4 text-center">
-        <h4 className="text-base font-bold">Credential ID</h4>
-        <p className="text-sm mb-2">{cert.id}</p>
-        <a
-          href={cert.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-primary-foreground text-primary font-bold py-1 px-3 rounded text-sm hover:bg-primary-foreground/90"
-        >
-          Verify
-        </a>
-      </div>
-    </div>
-  </div>
+const CertificationCard = ({ cert }: { cert: (typeof certifications)[0] }) => (
+  <a
+    href={cert.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block group transition-all duration-300 ease-in-out hover:scale-105"
+  >
+    <Card className="h-full group-hover:border-primary transition-colors">
+      <CardHeader className="flex flex-row items-center gap-4 p-4">
+        <img src={cert.logo} alt={`${cert.name} logo`} className="h-10 w-10 object-contain" />
+        <div className="flex-1">
+          <CardTitle className="text-base font-bold leading-tight">{cert.name}</CardTitle>
+          <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+        </div>
+      </CardHeader>
+    </Card>
+  </a>
 );
 
 export function Certifications() {
@@ -68,7 +64,7 @@ export function Certifications() {
         >
           {certifications.map((cert) => (
             <motion.div key={cert.name} variants={itemVariants}>
-              <FlipCard cert={cert} />
+              <CertificationCard cert={cert} />
             </motion.div>
           ))}
         </motion.div>

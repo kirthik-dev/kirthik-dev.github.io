@@ -80,41 +80,13 @@ export function Education() {
     <section id="education" className="py-24 sm:py-32 bg-secondary/50">
       <div className="container mx-auto px-4">
         <h2 className="text-xl md:text-2xl font-bold mb-12 text-center">
-          Courses & Training
+          Training / Courses
         </h2>
-        <Tabs defaultValue="courses" className="max-w-3xl mx-auto">
+        <Tabs defaultValue="training" className="max-w-3xl mx-auto">
           <TabsList className="grid w-full grid-cols-2 mb-8">
-            <TabsTrigger value="courses">Courses</TabsTrigger>
             <TabsTrigger value="training">Training</TabsTrigger>
+            <TabsTrigger value="courses">Courses</TabsTrigger>
           </TabsList>
-          <TabsContent value="courses">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.8 }}
-            >
-                <Accordion type="single" collapsible className="w-full">
-                    {courseCategories.map(category => (
-                        <AccordionItem key={category.category} value={category.category} className="border-b-primary/20">
-                            <AccordionTrigger className="text-lg font-bold hover:no-underline">{category.category}</AccordionTrigger>
-                            <AccordionContent>
-                               <ul className="space-y-2 pl-4">
-                                {category.courses.map(course => (
-                                    <li key={course.title} className="flex justify-between text-sm">
-                                        <span>
-                                            <span className="font-semibold">{course.title}</span> - <span className="text-muted-foreground">{course.provider}</span>
-                                        </span>
-                                        <span className="font-mono text-xs">{course.date}</span>
-                                    </li>
-                                ))}
-                               </ul>
-                            </AccordionContent>
-                        </AccordionItem>
-                    ))}
-                </Accordion>
-            </motion.div>
-          </TabsContent>
           <TabsContent value="training">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -141,6 +113,34 @@ export function Education() {
                                             )}
                                             <span className="font-mono text-xs">{training.date}</span>
                                         </div>
+                                    </li>
+                                ))}
+                               </ul>
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+            </motion.div>
+          </TabsContent>
+          <TabsContent value="courses">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8 }}
+            >
+                <Accordion type="single" collapsible className="w-full">
+                    {courseCategories.map(category => (
+                        <AccordionItem key={category.category} value={category.category} className="border-b-primary/20">
+                            <AccordionTrigger className="text-lg font-bold hover:no-underline">{category.category}</AccordionTrigger>
+                            <AccordionContent>
+                               <ul className="space-y-2 pl-4">
+                                {category.courses.map(course => (
+                                    <li key={course.title} className="flex justify-between text-sm">
+                                        <span>
+                                            <span className="font-semibold">{course.title}</span> - <span className="text-muted-foreground">{course.provider}</span>
+                                        </span>
+                                        <span className="font-mono text-xs">{course.date}</span>
                                     </li>
                                 ))}
                                </ul>

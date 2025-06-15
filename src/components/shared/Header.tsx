@@ -12,7 +12,7 @@ const navLinks = [
   { to: "experience", label: "Experience" },
   { to: "projects", label: "Projects" },
   { to: "certifications", label: "Certifications" },
-  { to: "education", label: "Courses & Training" },
+  { to: "education", label: "Training / Courses" },
   { to: "contact", label: "Contact" },
 ];
 
