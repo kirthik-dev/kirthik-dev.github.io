@@ -1,55 +1,46 @@
 
 export const educationItems = [
     {
+        date: "Apr 2024",
         title: "Fractal Data Science",
-        description: "Issued by Coursera",
-        image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80',
-        logo: "https://img.icons8.com/color/144/coursera.png",
+        platform: "Coursera",
         link: "https://coursera.org/verify/professional-cert/9VRLU3VD5YWG",
-        tag: "Certification"
     },
     {
+        date: "Dec 2023",
         title: "Data Science Internship",
-        description: "Completed at SmartKnower in 2023",
-        image: "/lovable-uploads/e27d5d26-54ee-4188-a894-b5ab7530f32d.png",
+        platform: "SmartKnower",
         link: "/lovable-uploads/e27d5d26-54ee-4188-a894-b5ab7530f32d.png",
-        tag: "Internship"
     },
     {
+        date: "Oct 2023",
         title: "Data Engineering Bootcamp",
-        description: "Completed with DataTalks.Club in 2023",
-        image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
-        tag: "Bootcamp"
+        platform: "DataTalks.Club",
     },
     {
+        date: "Mar 2024",
         title: "Advanced Python for Data Science",
-        description: "Online workshop in 2024",
-        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
-        tag: "Workshop"
+        platform: "Online Workshop",
     },
     {
+        date: "Sep 2023",
         title: "Cloud Architecture on GCP",
-        description: "Online workshop in 2023",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80",
-        tag: "Workshop"
+        platform: "Online Workshop",
     },
     {
+        date: "May 2023",
         title: "Big Data Analytics",
-        description: "Coursework at NIT Trichy (2023)",
-        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80",
-        tag: "Data Engineering"
+        platform: "NIT Trichy",
     },
     {
+        date: "Jan 2023",
         title: "Introduction to Machine Learning",
-        description: "Coursework at NIT Trichy",
-        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80",
-        tag: "AI/ML"
+        platform: "NIT Trichy",
     },
     {
+        date: "Aug 2022",
         title: "Data Structures and Applications",
-        description: "Minor in Computer Applications at NIT Trichy",
-        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
-        tag: "Minor in CS"
+        platform: "NIT Trichy",
     },
 ];
 
