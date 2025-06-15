@@ -33,7 +33,7 @@ export function Experience() {
        <div className="absolute inset-x-0 top-0 h-full bg-background -skew-y-3 -z-10 origin-top-left" />
        <div className="absolute inset-x-0 bottom-0 h-full bg-background skew-y-3 -z-10 origin-bottom-left" />
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
           Work Experience
         </h2>
         <div className="relative max-w-4xl mx-auto">
@@ -49,10 +49,10 @@ export function Experience() {
             >
               <div className={`w-full md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
                 <div className="glassmorphic-card p-6">
-                  <h3 className="text-xl font-bold text-primary">{exp.role}</h3>
-                  <p className="font-semibold">{exp.company}</p>
-                  <p className="text-sm text-muted-foreground mb-2">{exp.period}</p>
-                  <p className="text-foreground/80">{exp.description}</p>
+                  <h3 className="text-lg font-bold text-primary">{exp.role}</h3>
+                  <p className="font-medium">{exp.company}</p>
+                  <p className="text-xs text-muted-foreground mb-2">{exp.period}</p>
+                  <p className="text-sm text-foreground/80">{exp.description}</p>
                 </div>
               </div>
               <div className="hidden md:flex z-10 bg-primary h-4 w-4 rounded-full order-1 md:order-1.5" />

@@ -19,8 +19,8 @@ export function About() {
           variants={fadeIn}
           className="glassmorphic-card max-w-4xl mx-auto p-8 md:p-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">About Me</h2>
-          <p className="text-lg text-foreground/80 mb-6 text-center leading-relaxed">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">About Me</h2>
+          <p className="text-base text-foreground/80 mb-6 text-center leading-relaxed">
             Data Engineer skilled in building scalable ETL pipelines and data quality frameworks with Python, PySpark, SQL, and GCP. Led the creation of two data quality engines and real-time ingestion workflows processing millions of records daily. Developed Streamlit-based UIs and chatbots for metadata management. Proficient in collaborative stakeholder engagement and cross-functional solution design.
           </p>
           <div className="flex justify-center space-x-4">

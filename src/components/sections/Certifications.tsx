@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 const certifications = [
@@ -30,15 +31,15 @@ const itemVariants = {
 const FlipCard = ({ cert }: { cert: typeof certifications[0] }) => (
   <div className="group w-full h-48 [perspective:1000px]">
     <div className="relative h-full w-full rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-      <div className="absolute inset-0 bg-background rounded-xl flex flex-col items-center justify-center">
-        <img src={cert.logo} alt={cert.name} className="h-16 mb-2" />
-        <h3 className="font-bold text-center">{cert.name}</h3>
-        <p className="text-sm text-muted-foreground text-center">{cert.issuer}</p>
+      <div className="absolute inset-0 bg-background rounded-xl flex flex-col items-center justify-center p-4 text-center">
+        <img src={cert.logo} alt={cert.name} className="h-12 mb-2" />
+        <h3 className="font-bold text-sm">{cert.name}</h3>
+        <p className="text-xs text-muted-foreground">{cert.issuer}</p>
       </div>
-      <div className="absolute inset-0 h-full w-full rounded-xl bg-primary text-primary-foreground [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col items-center justify-center p-4">
-        <h4 className="text-lg font-bold">Credential ID</h4>
-        <p className="mb-4">{cert.id}</p>
-        <a href={cert.link} target="_blank" rel="noopener noreferrer" className="bg-primary-foreground text-primary font-bold py-2 px-4 rounded hover:bg-primary-foreground/90">Verify</a>
+      <div className="absolute inset-0 h-full w-full rounded-xl bg-primary text-primary-foreground [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col items-center justify-center p-4 text-center">
+        <h4 className="text-base font-bold">Credential ID</h4>
+        <p className="text-sm mb-2">{cert.id}</p>
+        <a href={cert.link} target="_blank" rel="noopener noreferrer" className="bg-primary-foreground text-primary font-bold py-1 px-3 rounded text-sm hover:bg-primary-foreground/90">Verify</a>
       </div>
     </div>
   </div>
@@ -49,7 +50,7 @@ export function Certifications() {
   return (
     <section id="certifications" className="py-24 sm:py-32">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
           Certifications
         </h2>
         <motion.div

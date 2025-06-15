@@ -34,7 +34,7 @@ export function Skills() {
   return (
     <section id="skills" className="py-24 sm:py-32 bg-secondary/50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
           Skills & Tools
         </h2>
         <motion.div
@@ -50,12 +50,12 @@ export function Skills() {
               variants={itemVariants}
               className="flex flex-col items-center justify-center p-6 bg-background rounded-full aspect-square shadow-md animate-pulse-slow"
             >
-              <skill.icon className="h-10 w-10 text-primary mb-2" />
-              <p className="font-semibold text-center">{skill.name}</p>
+              <skill.icon className="h-8 w-8 text-primary mb-2" />
+              <p className="font-medium text-sm text-center">{skill.name}</p>
             </motion.div>
           ))}
         </motion.div>
-        <div className="space-y-6 max-w-4xl mx-auto">
+        <div className="space-y-4 max-w-4xl mx-auto">
           {skills.map((skill) => (
              <motion.div 
                key={`${skill.name}-progress`}
@@ -65,8 +65,8 @@ export function Skills() {
                transition={{ duration: 0.5 }}
              >
               <div className="flex justify-between mb-1">
-                <span className="text-base font-medium text-foreground">{skill.name}</span>
-                <span className="text-sm font-medium text-muted-foreground">{skill.level}%</span>
+                <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                <span className="text-xs font-medium text-muted-foreground">{skill.level}%</span>
               </div>
               <Progress value={skill.level} className="w-full" />
             </motion.div>

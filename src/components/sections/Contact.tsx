@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,7 +17,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 sm:py-32">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
           Get In Touch
         </h2>
         <div className="grid md:grid-cols-2 gap-8 lg:gap-16 max-w-6xl mx-auto items-center">
@@ -37,7 +36,7 @@ export function Contact() {
             <motion.div variants={itemVariants}><Input type="email" placeholder="Your Email" className="bg-secondary/50 focus-visible:ring-offset-0 focus-visible:ring-primary/50"/></motion.div>
             <motion.div variants={itemVariants}><Textarea placeholder="Your Message" rows={5} className="bg-secondary/50 focus-visible:ring-offset-0 focus-visible:ring-primary/50"/></motion.div>
             <motion.div variants={itemVariants}>
-                <Button type="submit" className="w-full text-lg animate-subtle-glow">
+                <Button type="submit" className="w-full animate-subtle-glow">
                 Let's Collaborate
                 </Button>
             </motion.div>

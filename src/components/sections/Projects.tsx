@@ -39,7 +39,7 @@ export function Projects() {
   return (
     <section id="projects" className="py-24 sm:py-32 bg-secondary/50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
           Projects
         </h2>
         <div className="md:columns-2 lg:columns-3 gap-8 space-y-8">
@@ -55,8 +55,8 @@ export function Projects() {
             >
               <img src={project.image} alt={project.title} className="w-full h-48 object-cover"/>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4">{project.description}</p>
+                <h3 className="text-lg font-bold mb-2">{project.title}</h3>
+                <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map(tag => (
                     <span key={tag} className="text-xs font-semibold bg-primary/10 text-primary px-2 py-1 rounded-full">{tag}</span>

@@ -13,13 +13,13 @@ export function Hero() {
       <div className="absolute inset-0 animated-gradient -z-10" />
       <div className="absolute inset-0 bg-black/30 -z-10" />
       <div className="container mx-auto px-4">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider">
           Kirthik B
         </h1>
-        <p className="mt-4 text-xl md:text-2xl lg:text-3xl font-light tracking-wide">
+        <p className="mt-4 text-lg md:text-xl lg:text-2xl font-light tracking-wide">
           Data Engineer & AI Engineer
         </p>
-        <div className="mt-6 text-lg md:text-xl text-primary-foreground/80 h-14 md:h-7">
+        <div className="mt-6 text-base md:text-lg text-primary-foreground/80 h-14 md:h-7">
           <TypeAnimation
             sequence={[
               "Building scalable ETL pipelines in PySpark & Python...",
