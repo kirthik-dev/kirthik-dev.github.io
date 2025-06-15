@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Code, Database, BarChart, Cloud, Wind } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 
@@ -12,7 +12,7 @@ const skills = [
   { name: "Airflow", icon: Wind, level: 75 },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -21,7 +21,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, scale: 0.5 },
   visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } },
 };
