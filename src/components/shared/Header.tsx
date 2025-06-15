@@ -1,4 +1,3 @@
-
 import { Link } from "react-scroll";
 import { ThemeToggle } from "./ThemeToggle";
 import { Button } from "@/components/ui/button";
@@ -11,8 +10,7 @@ const navLinks = [
   { to: "skills", label: "Skills" },
   { to: "experience", label: "Experience" },
   { to: "projects", label: "Projects" },
-  { to: "certifications", label: "Certifications" },
-  { to: "education", label: "Training / Courses" },
+  { to: "education", label: "Certifications & Training" },
   { to: "contact", label: "Contact" },
 ];
 

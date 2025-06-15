@@ -7,6 +7,46 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+
+const certifications = [
+  {
+    name: "Fractal Data Science",
+    issuer: "Coursera",
+    id: "FDS-Coursera-9VRLU3VD5YWG",
+    link: "https://coursera.org/verify/professional-cert/9VRLU3VD5YWG",
+    logo: "https://img.icons8.com/color/144/coursera.png",
+  },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1 },
+};
+
+const CertificationCard = ({ cert }: { cert: (typeof certifications)[0] }) => (
+  <a
+    href={cert.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block group transition-all duration-300 ease-in-out hover:scale-105"
+  >
+    <Card className="h-full group-hover:border-primary transition-colors">
+      <CardHeader className="flex flex-row items-center gap-4 p-4">
+        <img src={cert.logo} alt={`${cert.name} logo`} className="h-10 w-10 object-contain" />
+        <div className="flex-1">
+          <CardTitle className="text-base font-bold leading-tight">{cert.name}</CardTitle>
+          <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+        </div>
+      </CardHeader>
+    </Card>
+  </a>
+);
 
 type Course = {
   title: string;
@@ -80,13 +120,29 @@ export function Education() {
     <section id="education" className="py-24 sm:py-32 bg-secondary/50">
       <div className="container mx-auto px-4">
         <h2 className="text-xl md:text-2xl font-bold mb-12 text-center">
-          Training / Courses
+          Certifications, Training & Courses
         </h2>
-        <Tabs defaultValue="training" className="max-w-3xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 mb-8">
+        <Tabs defaultValue="certifications" className="max-w-3xl mx-auto">
+          <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsTrigger value="certifications">Certifications</TabsTrigger>
             <TabsTrigger value="training">Training</TabsTrigger>
             <TabsTrigger value="courses">Courses</TabsTrigger>
           </TabsList>
+          <TabsContent value="certifications">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+            >
+              {certifications.map((cert) => (
+                <motion.div key={cert.name} variants={itemVariants}>
+                  <CertificationCard cert={cert} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </TabsContent>
           <TabsContent value="training">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
