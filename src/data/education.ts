@@ -34,6 +34,18 @@ export const educationItems = [
         tag: "Workshop"
     },
     {
+        title: "Big Data Analytics",
+        description: "Coursework at NIT Trichy (2023)",
+        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80",
+        tag: "Data Engineering"
+    },
+    {
+        title: "Introduction to Machine Learning",
+        description: "Coursework at NIT Trichy",
+        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80",
+        tag: "AI/ML"
+    },
+    {
         title: "Data Structures and Applications",
         description: "Minor in Computer Applications at NIT Trichy",
         image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",

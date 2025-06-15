@@ -5,7 +5,7 @@ import { EducationItemType } from "@/data/education";
 export const EducationCard = ({ item }: { item: EducationItemType }) => {
   const cardContent = (
     <Card className="h-full flex flex-col group overflow-hidden transition-all duration-300 ease-in-out hover:shadow-primary/20 bg-card/80 backdrop-blur-sm">
-      <div className="relative aspect-video overflow-hidden">
+      <div className="relative aspect-square overflow-hidden">
         <img
           src={item.image}
           alt={item.title}
