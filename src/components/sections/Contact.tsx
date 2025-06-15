@@ -52,7 +52,7 @@ export function Contact() {
 
     if (error) {
       console.error(error);
-      toast.error("Failed to send message. Please try again later.");
+      toast.error(error.message || "Failed to send message. Please try again later.");
     } else {
       toast.success("Your message has been sent successfully!");
       form.reset();

@@ -4,7 +4,7 @@ import { createClient } from 'npm:@supabase/supabase-js@2';
 import { Resend } from "npm:resend@2.0.0";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-// IMPORTANT: Replace this with the email address you want to receive contact form submissions.
+// Set to your desired email address
 const TO_EMAIL = "kirthi.mech@gmail.com";
 const FROM_EMAIL = "onboarding@resend.dev"; // This must be a verified domain on Resend.
 
@@ -58,7 +58,8 @@ serve(async (req) => {
 
     if (emailError) {
       console.error("Resend error:", emailError);
-      return new Response(JSON.stringify({ error: "Failed to send message via email." }), {
+      const errorMessage = (emailError as any).message || "Failed to send message via email.";
+      return new Response(JSON.stringify({ error: errorMessage }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
