@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Eye, Github } from "lucide-react";
@@ -7,10 +6,9 @@ const projects = [
   {
     title: "AI-Powered Blog Generation & Translation Pipeline",
     description: [
-      "Structured a modular FastAPI project using uv for clean graph-based workflow management.",
-      "Built and connected LangGraph nodes to generate, structure, and translate blogs dynamically.",
-      "Integrated LangGraph Studio for visual debugging and state tracking of blog generation flow.",
-      "Exposed APIs and tested end-to-end functionality using Postman for multilingual blog output."
+      "Structured a modular FastAPI project and built a LangGraph pipeline to generate, structure, and translate blogs.",
+      "Integrated LangGraph Studio for visual debugging and state tracking of the generation flow.",
+      "Exposed and tested APIs using Postman for end-to-end multilingual blog output."
     ],
     image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159",
     tags: ["FastAPI", "LangGraph", "Python", "Docker"],
@@ -20,10 +18,9 @@ const projects = [
   {
     title: "Scalable Uber Data Analytics Pipeline on GCP",
     description: [
-        "Engineered a daily ETL pipeline to process 5M+ Uber trip records using Python and Mage on Google Cloud.",
-        "Designed a star-schema with fact and dimension tables, reducing BigQuery query latency by 40%.",
-        "Created an interactive Google Data Studio dashboard showing trip frequency, peak hours, and heatmaps.",
-        "Enabled data-driven operational decisions for 10+ stakeholders through real-time reporting."
+        "Engineered a daily ETL pipeline on GCP for 5M+ Uber records, designing a star-schema that cut BigQuery latency by 40%.",
+        "Created an interactive Google Data Studio dashboard visualizing trip frequency, peak hours, and heatmaps.",
+        "Enabled data-driven decisions for 10+ stakeholders through real-time reporting."
     ],
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
     tags: ["Python", "SQL", "Mage", "GCP", "BigQuery"],
@@ -33,8 +30,7 @@ const projects = [
   {
     title: "Spotify User Behavior Analytics Pipeline",
     description: [
-        "Extracted and processed 200K+ tracks and session records using the Spotipy API.",
-        "Cleaned and structured data using Pandas, boosting ETL throughput by 25%.",
+        "Extracted and processed 200K+ Spotify records with Spotipy and Pandas, boosting ETL throughput by 25%.",
         "Built Matplotlib visualizations to track trending songs and user engagement patterns.",
         "Provided actionable insights that informed the creation of 3 new playlist features."
     ],
