@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
@@ -30,7 +29,7 @@ const projects: Project[] = [
   },
   {
     title: "Scalable Uber Data Analytics Pipeline on GCP",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400",
+    image: "/lovable-uploads/a8221c16-892d-4dad-8cfa-6805ff242dda.png",
     details: [
       "Engineered a daily ETL pipeline to process 5M+ Uber trip records using Python and Mage on Google Cloud.",
       "Designed a star-schema with fact and dimension tables, reducing BigQuery query latency by 40%.",
