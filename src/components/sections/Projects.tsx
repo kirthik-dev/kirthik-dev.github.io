@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
@@ -15,10 +16,12 @@ interface Project {
   tags: string[];
 }
 
+const basePath = import.meta.env.BASE_URL;
+
 const projects: Project[] = [
   {
     title: "AI-Powered Blog Generation & Translation Pipeline",
-    image: "/lovable-uploads/6bfabb44-4b36-491b-b200-d91c5f0a15d3.png",
+    image: `${basePath}lovable-uploads/6bfabb44-4b36-491b-b200-d91c5f0a15d3.png`,
     details: [
       "Structured a modular FastAPI project using uv for clean graph-based workflow management.",
       "Built and connected LangGraph nodes to generate, structure, and translate blogs dynamically.",
@@ -29,7 +32,7 @@ const projects: Project[] = [
   },
   {
     title: "Scalable Uber Data Analytics Pipeline on GCP",
-    image: "/lovable-uploads/a8221c16-892d-4dad-8cfa-6805ff242dda.png",
+    image: `${basePath}lovable-uploads/a8221c16-892d-4dad-8cfa-6805ff242dda.png`,
     details: [
       "Engineered a daily ETL pipeline to process 5M+ Uber trip records using Python and Mage on Google Cloud.",
       "Designed a star-schema with fact and dimension tables, reducing BigQuery query latency by 40%.",
@@ -40,7 +43,7 @@ const projects: Project[] = [
   },
   {
     title: "Spotify User Behavior Analytics Pipeline",
-    image: "/lovable-uploads/68526ab1-ef69-40fe-b840-8c7f62fdc405.png",
+    image: `${basePath}lovable-uploads/68526ab1-ef69-40fe-b840-8c7f62fdc405.png`,
     details: [
       "Extracted and processed 200K+ tracks and session records using the Spotipy API.",
       "Cleaned and structured data using Pandas, boosting ETL throughput by 25%.",
