@@ -21,7 +21,7 @@ export function About() {
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">About Me</h2>
           <p className="text-base text-foreground/80 mb-6 text-center leading-relaxed">
-            Data Engineer skilled in building scalable ETL pipelines and data quality frameworks with Python, PySpark, SQL, and GCP. Led the creation of two data quality engines and real-time ingestion workflows processing millions of records daily. Developed Streamlit-based UIs and chatbots for metadata management. Proficient in collaborative stakeholder engagement and cross-functional solution design.
+            I’m a Data Engineer with 1 year of experience, also contributing to AI-driven solutions. I build scalable ETL pipelines and data quality engines using Python, PySpark, and SQL. My work includes real-time data ingestion, Streamlit dashboards, and metadata chatbots. I collaborate on AI projects involving demand forecasting and multi-agent systems. Skilled in GCP, PostgreSQL, LangGraph, and ML tools like scikit-learn and TensorFlow. I bring a unique blend of data infrastructure and machine learning expertise to solve business problems.
           </p>
           <div className="flex justify-center space-x-4">
             <a href="https://linkedin.com/in/kirthik-b-646723214" target="_blank" rel="noopener noreferrer">
