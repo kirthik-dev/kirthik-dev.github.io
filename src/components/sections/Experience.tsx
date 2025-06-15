@@ -3,22 +3,22 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    role: "Senior Data Engineer",
-    company: "Innovatech Solutions",
-    period: "2021 - Present",
-    description: "Led development of a real-time data processing pipeline using PySpark and GCP, improving data availability by 40%.",
+    role: "Associate Data Engineer",
+    company: "YLogx Pvt Ltd",
+    period: "Feb 2025 - Present",
+    description: "Designed two data quality engines in PySpark & Python with 12+ validations and built a Streamlit-based chatbot for metadata management.",
   },
   {
-    role: "Data Engineer",
-    company: "DataDriven Inc.",
-    period: "2019 - 2021",
-    description: "Designed and maintained ETL workflows with Airflow, processing terabytes of data daily for business intelligence.",
+    role: "AI Engineer Intern",
+    company: "YLogx Pvt Ltd",
+    period: "Aug 2024 - Feb 2025",
+    description: "Prototyped real-time workflows, developed a multi-agentic chatbot using LangGraph, and conducted stakeholder requirement gathering.",
   },
   {
-    role: "Junior Data Analyst",
-    company: "Analytics Co.",
-    period: "2018 - 2019",
-    description: "Created interactive dashboards in Power BI and performed ad-hoc analysis to support marketing campaigns.",
+    role: "Research Intern",
+    company: "NIT Trichy",
+    period: "Jun 2023 - Jul 2023",
+    description: "Forecasted population growth near nuclear plants using regression models, reducing RMSE by 10% with GridSearchCV.",
   },
 ];
 

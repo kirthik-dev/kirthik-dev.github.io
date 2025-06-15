@@ -1,22 +1,20 @@
-
 import { motion } from "framer-motion";
 
 const certifications = [
   {
     name: "Google Cloud Certified",
     issuer: "Professional Data Engineer",
-    id: "GCP-123456",
+    id: "GCP-PDE-123456",
     link: "#",
     logo: "https://www.gstatic.com/devrel-devsite/prod/v1ce962f9283f5d817d12a2c1f937d00f73549efdfde0d5bed79393a5ebc34f8a/cloud/images/cloud-logo.svg",
   },
   {
     name: "Databricks Certified",
     issuer: "Associate Developer for Apache Spark",
-    id: "DBC-789012",
+    id: "DBC-ADS-789012",
     link: "#",
     logo: "https://img.icons8.com/color/144/databricks.png",
   },
-  // Add more as needed
 ];
 
 const containerVariants = {
@@ -59,15 +57,10 @@ export function Certifications() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto"
         >
           {certifications.map((cert) => (
             <motion.div key={cert.name} variants={itemVariants}>
-              <FlipCard cert={cert} />
-            </motion.div>
-          ))}
-           {certifications.map((cert) => (
-            <motion.div key={cert.name + '1'} variants={itemVariants}>
               <FlipCard cert={cert} />
             </motion.div>
           ))}

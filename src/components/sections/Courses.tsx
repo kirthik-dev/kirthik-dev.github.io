@@ -11,22 +11,23 @@ const courseCategories = [
     {
         category: "Data Engineering",
         courses: [
-            { title: "Advanced SQL for Data Scientists", provider: "Coursera", date: "2023" },
-            { title: "Building Data Pipelines with Apache Airflow", provider: "Udemy", date: "2023" },
+            { title: "Big Data Analytics", provider: "NIT Trichy", date: "2023" },
+            { title: "Quality Control", provider: "NIT Trichy", date: "2023" },
         ]
     },
     {
         category: "AI/ML",
         courses: [
-            { title: "Deep Learning Specialization", provider: "deeplearning.ai", date: "2022" },
-            { title: "Natural Language Processing with Transformers", provider: "Hugging Face", date: "2022" },
+            { title: "Introduction to Machine Learning", provider: "NIT Trichy", date: "Coursework" },
+            { title: "Natural Language Processing", provider: "NIT Trichy", date: "Projects" },
         ]
     },
      {
-        category: "Web Development",
+        category: "Minor in Computer Applications",
         courses: [
-            { title: "The Complete Web Developer in 2023", provider: "Udemy", date: "2023" },
-            { title: "React - The Complete Guide", provider: "Academind", date: "2022" },
+            { title: "Data Structures and Applications", provider: "NIT Trichy", date: "Coursework" },
+            { title: "Mathematical Foundations of CS", provider: "NIT Trichy", date: "Coursework" },
+            { title: "Operating Systems", provider: "NIT Trichy", date: "Coursework" },
         ]
     }
 ]

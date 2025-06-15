@@ -1,5 +1,5 @@
 
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, TargetAndTransition } from "framer-motion";
 import { Code, Database, BarChart, Cloud, Wind } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 
@@ -9,7 +9,7 @@ const skills = [
   { name: "SQL", icon: Database, level: 90 },
   { name: "GCP", icon: Cloud, level: 85 },
   { name: "Power BI", icon: BarChart, level: 80 },
-  { name: "Airflow", icon: Wind, level: 75 },
+  { name: "Airflow", icon: Wind, level: 80 },
 ];
 
 const containerVariants: Variants = {
@@ -23,7 +23,11 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, scale: 0.5 },
-  visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: "spring", stiffness: 300, damping: 20 },
+  } as TargetAndTransition,
 };
 
 export function Skills() {

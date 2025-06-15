@@ -38,7 +38,7 @@ export function Contact() {
             <motion.div variants={itemVariants}><Textarea placeholder="Your Message" rows={5} className="bg-secondary/50 focus-visible:ring-offset-0 focus-visible:ring-primary/50"/></motion.div>
             <motion.div variants={itemVariants}>
                 <Button type="submit" className="w-full text-lg animate-subtle-glow">
-                Send Message
+                Let's Collaborate
                 </Button>
             </motion.div>
           </motion.form>
