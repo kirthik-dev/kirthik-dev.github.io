@@ -25,11 +25,11 @@ export function Hero() {
         <div className="mt-6 text-base md:text-lg text-primary-foreground/80 h-14 md:h-7">
           <TypeAnimation
             sequence={[
-              "Building scalable ETL pipelines in PySpark & Python...",
+              "Crafting scalable ETL pipelines with Python & PySpark.",
               2000,
-              "Leading data quality engines and real-time ingestion...",
+              "Engineering real-time data ingestion & quality frameworks.",
               2000,
-              "Architecting ML-powered data systems on GCP...",
+              "Developing AI-powered multi-agent systems with LangGraph.",
               2000,
             ]}
             wrapper="span"
