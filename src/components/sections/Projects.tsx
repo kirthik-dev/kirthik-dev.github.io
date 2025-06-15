@@ -8,12 +8,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
+import { Github } from "lucide-react";
 
 interface Project {
   title: string;
   image: string;
   details: string[];
   tags: string[];
+  repoUrl: string;
 }
 
 const basePath = import.meta.env.BASE_URL;
@@ -29,6 +31,7 @@ const projects: Project[] = [
       "Exposed APIs and tested end-to-end functionality using Postman for multilingual blog output.",
     ],
     tags: ["FastAPI", "LangGraph", "Docker", "Python"],
+    repoUrl: "https://github.com/kirthiksanjai/AI-Powered-Blog-Generation-Translation-Pipeline",
   },
   {
     title: "Scalable Uber Data Analytics Pipeline on GCP",
@@ -40,6 +43,7 @@ const projects: Project[] = [
       "Enabled data-driven operational decisions for 10+ stakeholders through real-time reporting.",
     ],
     tags: ["GCP", "BigQuery", "Mage", "Looker Studio"],
+    repoUrl: "https://github.com/kirthiksanjai/Scalable-Uber-Data-Analytics-Pipeline-on-GCP",
   },
   {
     title: "Spotify User Behavior Analytics Pipeline",
@@ -51,6 +55,7 @@ const projects: Project[] = [
       "Provided actionable insights that informed the creation of 3 new playlist features.",
     ],
     tags: ["Python", "Pandas", "Spotipy", "Matplotlib"],
+    repoUrl: "https://github.com/kirthiksanjai/Spotify-User-Behavior-Analytics-Pipeline",
   },
 ];
 
@@ -82,7 +87,12 @@ export function Projects() {
                         className="w-full h-40 object-cover"
                       />
                       <CardHeader>
-                        <CardTitle className="text-lg">{project.title}</CardTitle>
+                        <div className="flex justify-between items-start">
+                          <CardTitle className="text-lg pr-4">{project.title}</CardTitle>
+                          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors flex-shrink-0">
+                            <Github className="h-5 w-5" />
+                          </a>
+                        </div>
                       </CardHeader>
                       <CardContent className="flex-grow flex flex-col justify-between">
                         <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground mb-4">
