@@ -40,17 +40,7 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4">
-        <Link
-          to="hero"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
-          className="cursor-pointer text-2xl font-bold text-primary"
-        >
-          K.B
-        </Link>
+      <div className="container mx-auto flex h-20 items-center justify-end gap-6 px-4">
         <nav className="hidden md:flex items-center space-x-8">
           <NavLinks />
         </nav>
