@@ -5,26 +5,41 @@ import { Eye, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Uber Data Analytics Pipeline",
-    description: "Engineered a daily ETL pipeline processing 5M+ Uber trip records, using Python and Mage, with a star-schema in BigQuery reducing query latency by 40%.",
+    title: "AI-Powered Blog Generation & Translation Pipeline",
+    description: [
+      "Structured a modular FastAPI project using uv for clean graph-based workflow management.",
+      "Built and connected LangGraph nodes to generate, structure, and translate blogs dynamically.",
+      "Integrated LangGraph Studio for visual debugging and state tracking of blog generation flow.",
+      "Exposed APIs and tested end-to-end functionality using Postman for multilingual blog output."
+    ],
+    image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159",
+    tags: ["FastAPI", "LangGraph", "Python", "Docker"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    title: "Scalable Uber Data Analytics Pipeline on GCP",
+    description: [
+        "Engineered a daily ETL pipeline to process 5M+ Uber trip records using Python and Mage on Google Cloud.",
+        "Designed a star-schema with fact and dimension tables, reducing BigQuery query latency by 40%.",
+        "Created an interactive Google Data Studio dashboard showing trip frequency, peak hours, and heatmaps.",
+        "Enabled data-driven operational decisions for 10+ stakeholders through real-time reporting."
+    ],
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
     tags: ["Python", "SQL", "Mage", "GCP", "BigQuery"],
     liveUrl: "#",
     githubUrl: "#",
   },
   {
-    title: "Spotify ETL Dashboard",
-    description: "Extracted 200K+ records via Spotipy API, visualized top trends with Matplotlib, and identified playlist insights.",
+    title: "Spotify User Behavior Analytics Pipeline",
+    description: [
+        "Extracted and processed 200K+ tracks and session records using the Spotipy API.",
+        "Cleaned and structured data using Pandas, boosting ETL throughput by 25%.",
+        "Built Matplotlib visualizations to track trending songs and user engagement patterns.",
+        "Provided actionable insights that informed the creation of 3 new playlist features."
+    ],
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
     tags: ["Python", "Spotipy", "Pandas", "Matplotlib"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Population Forecast Model",
-    description: "Modeled NASA SEDAC data to forecast population growth near nuclear plants. A GridSearchCV-tuned regression model reduced RMSE by 10%.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
-    tags: ["Python", "Scikit-learn", "Pandas", "EDA"],
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -39,7 +54,7 @@ export function Projects() {
   return (
     <section id="projects" className="py-24 sm:py-32 bg-secondary/50">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
+        <h2 className="text-xl md:text-2xl font-bold mb-12 text-center">
           Projects
         </h2>
         <div className="md:columns-2 lg:columns-3 gap-8 space-y-8">
@@ -56,7 +71,11 @@ export function Projects() {
               <img src={project.image} alt={project.title} className="w-full h-48 object-cover"/>
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-2">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
+                <ul className="list-disc list-inside text-sm text-foreground/80 space-y-1 mb-4">
+                    {project.description.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                </ul>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map(tag => (
                     <span key={tag} className="text-xs font-semibold bg-primary/10 text-primary px-2 py-1 rounded-full">{tag}</span>
