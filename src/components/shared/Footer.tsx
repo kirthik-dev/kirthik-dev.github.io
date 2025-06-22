@@ -19,7 +19,7 @@ export function Footer() {
               </a>
           </div>
           <div className="flex justify-center space-x-4">
-            <a href="https://github.com/kirthiksanjai" target="_blank" rel="noopener noreferrer" className="text-secondary-foreground hover:text-primary transition-colors">
+            <a href="https://github.com/kirthik-dev" target="_blank" rel="noopener noreferrer" className="text-secondary-foreground hover:text-primary transition-colors">
               <Github className="h-5 w-5" />
             </a>
             <a href="https://www.linkedin.com/in/kirthik-sanjai/" target="_blank" rel="noopener noreferrer" className="text-secondary-foreground hover:text-primary transition-colors">

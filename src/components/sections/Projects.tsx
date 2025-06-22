@@ -31,7 +31,7 @@ const projects: Project[] = [
       "Exposed APIs and tested end-to-end functionality using Postman for multilingual blog output.",
     ],
     tags: ["FastAPI", "LangGraph", "Docker", "Python"],
-    repoUrl: "https://github.com/kirthiksanjai/AI-Powered-Blog-Generation-Translation-Pipeline",
+    repoUrl: "https://github.com/kirthik-dev/AI-Powered-Blog-Generation-Translation-Pipeline",
   },
   {
     title: "Scalable Uber Data Analytics Pipeline on GCP",
@@ -43,7 +43,7 @@ const projects: Project[] = [
       "Enabled data-driven operational decisions for 10+ stakeholders through real-time reporting.",
     ],
     tags: ["GCP", "BigQuery", "Mage", "Looker Studio"],
-    repoUrl: "https://github.com/kirthiksanjai/Scalable-Uber-Data-Analytics-Pipeline-on-GCP",
+    repoUrl: "https://github.com/kirthik-dev/Scalable-Uber-Data-Analytics-Pipeline-on-GCP",
   },
   {
     title: "Spotify User Behavior Analytics Pipeline",
@@ -55,7 +55,7 @@ const projects: Project[] = [
       "Provided actionable insights that informed the creation of 3 new playlist features.",
     ],
     tags: ["Python", "Pandas", "Spotipy", "Matplotlib"],
-    repoUrl: "https://github.com/kirthiksanjai/Spotify-User-Behavior-Analytics-Pipeline",
+    repoUrl: "https://github.com/kirthik-dev/Spotify-User-Behavior-Analytics-Pipeline",
   },
 ];
 
