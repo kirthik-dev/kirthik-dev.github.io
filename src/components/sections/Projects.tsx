@@ -22,6 +22,30 @@ const basePath = import.meta.env.BASE_URL;
 
 const projects: Project[] = [
   {
+    title: "Retail Price Optimization using Machine Learning",
+    image: `${basePath}lovable-uploads/b26d45db-dc4f-4191-91c4-a20e6405f576.png`,
+    details: [
+      "Built a regression-based price optimization engine to identify ideal pricing for café items using historical sales data.",
+      "Modeled price elasticity of demand (EPD) with regression trees to estimate item-level sensitivity to price fluctuations.",
+      "Performed data cleaning, merging, and feature engineering across multi-source transactional and metadata inputs.",
+      "Leveraged exploratory data analysis (EDA) to visualize price-demand relationships and support business insight discovery.",
+    ],
+    tags: ["Python", "Machine Learning", "Regression Trees", "EDA"],
+    repoUrl: "https://github.com/kirthik-dev/Price-Optimization-project",
+  },
+  {
+    title: "Marketing Budget Optimization using Machine Learning",
+    image: `${basePath}lovable-uploads/2edd09ca-b56c-4fb3-ad9d-2b3ba7a16fe3.png`,
+    details: [
+      "Developed a supervised ML pipeline to optimize B2C marketing spend using XGBoost and LightGBM.",
+      "Predicted customer engagement using historical campaign performance to assess channel-level effectiveness.",
+      "Engineered features and visualized marketing impact patterns to support resource reallocation decisions.",
+      "Applied statistical modeling to support cost-effective strategy design without manual experimentation.",
+    ],
+    tags: ["XGBoost", "LightGBM", "Machine Learning", "Marketing Analytics"],
+    repoUrl: "https://github.com/kirthik-dev/budget-optimization",
+  },
+  {
     title: "AI-Powered Blog Generation & Translation Pipeline",
     image: `${basePath}lovable-uploads/6bfabb44-4b36-491b-b200-d91c5f0a15d3.png`,
     details: [
