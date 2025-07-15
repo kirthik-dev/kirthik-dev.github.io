@@ -1,12 +1,5 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 
@@ -93,56 +86,44 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          <Carousel
-            opts={{
-              align: "start",
-            }}
-            className="w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto"
-          >
-            <CarouselContent>
-              {projects.map((project, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1 h-full">
-                    <Card className="flex flex-col h-full bg-background/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 transition-shadow duration-300 overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-40 object-cover"
-                      />
-                      <CardHeader>
-                        <div className="flex justify-between items-start">
-                          <CardTitle className="text-lg pr-4">{project.title}</CardTitle>
-                          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors flex-shrink-0">
-                            <Github className="h-5 w-5" />
-                          </a>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="flex-grow flex flex-col justify-between">
-                        <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground mb-4">
-                          {project.details.map((point, i) => (
-                            <li key={i}>{point}</li>
-                          ))}
-                        </ul>
-                        <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border/50">
-                          {project.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="bg-secondary text-secondary-foreground text-xs font-semibold px-2.5 py-1 rounded-full"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
+          {projects.map((project, index) => (
+            <div key={index} className="h-full">
+              <Card className="flex flex-col h-full bg-background/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 transition-shadow duration-300 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-40 object-cover"
+                />
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <CardTitle className="text-lg pr-4">{project.title}</CardTitle>
+                    <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors flex-shrink-0">
+                      <Github className="h-5 w-5" />
+                    </a>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
-          </Carousel>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col justify-between">
+                  <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground mb-4">
+                    {project.details.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border/50">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="bg-secondary text-secondary-foreground text-xs font-semibold px-2.5 py-1 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
