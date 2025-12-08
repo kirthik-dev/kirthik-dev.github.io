@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Enhanced Light Theme - High Contrast */
+    --bg-primary: #ffffff;
+    --bg-surface: #f8fafc;
+    --text-primary: #0f172a;
+    /* Slate 900 - Darker for better contrast */
+    --text-secondary: #334155;
+    /* Slate 700 - Darker than before */
+    --accent-primary: #4f46e5;
+    /* Indigo 600 - More vibrant */
+    --accent-secondary: #db2777;
+    /* Pink 600 - More vibrant */
+    --border-color: #cbd5e1;
+    /* Slate 300 - More visible */
+    --overlay-color: 255, 255, 255;
+    --overlay-opacity: 0.9;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+  }
+
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-slate-200 shadow-sm;
+  }
+}
