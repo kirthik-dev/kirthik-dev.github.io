@@ -12,7 +12,7 @@ export const resumeData = {
         portfolio: "https://kirthik-dev.github.io",
         location: "India"
     },
-    summary: "Data Engineer with 1.5 years of hands-on experience building ETL pipelines using PySpark and GCP. Worked on data quality frameworks, metadata-driven profiling systems, and dbt automation. Familiar with Spark optimization and graph-based metadata modeling. Currently looking for new opportunities to grow and contribute to data engineering teams.",
+    summary: "Data Engineer with more than1.8 years of hands-on experience building ETL pipelines using PySpark and GCP. Worked on data quality frameworks, metadata-driven profiling systems, and dbt automation. Familiar with Spark optimization and graph-based metadata modeling. Currently looking for new opportunities to grow and contribute to data engineering teams.",
 
     skillCategories: [
         {
