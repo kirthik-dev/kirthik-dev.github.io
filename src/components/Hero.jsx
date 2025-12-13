@@ -27,7 +27,7 @@ const Hero = () => {
                     </h1>
 
                     <p className="mt-8 text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-12">
-                        Data Engineer with 1.5 years of experience in ETL pipelines, data quality frameworks, and cloud-based data solutions. Open to new opportunities.
+                        Data Engineer with more than 1.8 years of experience in ETL pipelines, data quality frameworks, and Agentic AI development. Open to new opportunities.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
