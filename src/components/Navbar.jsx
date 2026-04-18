@@ -105,7 +105,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            className="border-t border-white/10 bg-slate-950/95 backdrop-blur-xl lg:hidden"
+            className="fixed inset-x-0 bottom-0 top-[88px] overflow-y-auto border-t border-white/10 bg-slate-950 shadow-2xl lg:hidden"
           >
             <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:px-6">
               {navLinks.map((link) => {
@@ -117,7 +117,7 @@ const Navbar = () => {
                     className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
                       isActive
                         ? 'bg-white text-slate-950'
-                        : 'bg-white/[0.03] text-brand-muted hover:bg-white/[0.06] hover:text-white'
+                        : 'bg-slate-900 text-brand-muted hover:bg-slate-800 hover:text-white'
                     }`}
                   >
                     {link.name}
