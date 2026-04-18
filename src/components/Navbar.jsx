@@ -1,119 +1,154 @@
-import { Link, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
+import { resumeData } from '../data/resume';
+
+const navLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Projects', path: '/projects' },
+  { name: 'Skills', path: '/skills' },
+  { name: 'Credentials', path: '/learning' },
+  { name: 'Contact', path: '/contact' },
+];
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-    const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    const navLinks = [
-        { name: 'Home', path: '/' },
-        { name: 'About', path: '/about' },
-        { name: 'Skills', path: '/skills' },
-        { name: 'Projects', path: '/projects' },
-        { name: 'Learning', path: '/learning' },
-        { name: 'Contact', path: '/contact' },
-    ];
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
-    return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled
-            ? 'bg-white shadow-md py-2 border-b border-slate-200'
-            : 'bg-transparent py-4'
-            }`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between">
-                    <Link to="/" className="text-2xl font-bold font-display tracking-tight text-slate-900">
-                        kirthik<span className="text-indigo-600">.dev</span>
-                    </Link>
+  return (
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'border-b border-white/10 bg-slate-950/75 py-3 backdrop-blur-xl'
+          : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="group">
+          <div className="font-display text-3xl tracking-wide text-white">
+            Kirthik <span className="text-cyan-200">B</span>
+          </div>
+          <div className="text-[11px] uppercase tracking-[0.34em] text-brand-muted transition duration-300 group-hover:text-cyan-200">
+            Data Engineer
+          </div>
+        </Link>
 
-                    {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center gap-8">
-                        <div className="flex gap-1">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    to={link.path}
-                                    className={`text-sm font-medium transition-all relative group px-3 py-2 rounded-md ${location.pathname === link.path
-                                        ? 'text-indigo-600 bg-indigo-50'
-                                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                                        }`}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </div>
-                        <div className="flex items-center gap-4 pl-6 border-l border-slate-200">
-                            <a href="https://github.com/kirthik-dev" target="_blank" rel="noopener noreferrer"
-                                className="text-slate-500 hover:text-slate-900 transition-colors">
-                                <FaGithub size={20} />
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
-                                className="text-slate-500 hover:text-indigo-600 transition-colors">
-                                <FaLinkedin size={20} />
-                            </a>
-                        </div>
-                    </div>
+        <div className="hidden items-center gap-2 lg:flex">
+          <div className="rounded-full border border-white/10 bg-white/[0.03] p-1">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`inline-flex rounded-full px-4 py-2 text-sm font-medium transition ${
+                    isActive
+                      ? 'bg-white text-slate-950'
+                      : 'text-brand-muted hover:bg-white/[0.05] hover:text-white'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+          </div>
 
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center gap-4">
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="text-slate-900 hover:text-indigo-600 focus:outline-none transition-colors"
-                        >
-                            {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
-                        </button>
-                    </div>
-                </div>
+          <div className="ml-4 flex items-center gap-3">
+            <a
+              href={resumeData.contact.github}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-white/10 bg-white/[0.03] p-3 text-brand-muted transition hover:border-cyan-300/30 hover:text-white"
+              aria-label="GitHub"
+            >
+              <FaGithub size={17} />
+            </a>
+            <a
+              href={resumeData.contact.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-white/10 bg-white/[0.03] p-3 text-brand-muted transition hover:border-cyan-300/30 hover:text-white"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={17} />
+            </a>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setIsOpen((open) => !open)}
+          className="inline-flex rounded-full border border-white/10 bg-white/[0.03] p-3 text-white transition hover:border-cyan-300/30 lg:hidden"
+          aria-label="Toggle navigation"
+        >
+          {isOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {isOpen ? (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            className="border-t border-white/10 bg-slate-950/95 backdrop-blur-xl lg:hidden"
+          >
+            <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:px-6">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                      isActive
+                        ? 'bg-white text-slate-950'
+                        : 'bg-white/[0.03] text-brand-muted hover:bg-white/[0.06] hover:text-white'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+
+              <div className="mt-2 flex items-center gap-3">
+                <a
+                  href={resumeData.contact.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="button-secondary flex-1"
+                >
+                  GitHub
+                </a>
+                <a
+                  href={resumeData.contact.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="button-secondary flex-1"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
-
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-b border-slate-200 overflow-hidden shadow-lg"
-                    >
-                        <div className="px-4 py-6 space-y-2">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    to={link.path}
-                                    onClick={() => setIsOpen(false)}
-                                    className={`block py-3 px-4 text-lg font-medium rounded-lg transition-all ${location.pathname === link.path
-                                        ? 'text-indigo-600 bg-indigo-50'
-                                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                                        }`}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                            <div className="flex gap-6 pt-4 mt-4 border-t border-slate-200 justify-center">
-                                <a href="https://github.com/kirthik-dev" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-slate-900">
-                                    <FaGithub size={24} />
-                                </a>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-indigo-600">
-                                    <FaLinkedin size={24} />
-                                </a>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </nav>
-    );
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </nav>
+  );
 };
 
 export default Navbar;

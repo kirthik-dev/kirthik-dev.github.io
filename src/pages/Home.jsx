@@ -1,80 +1,124 @@
+import { motion } from 'framer-motion';
+import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import ProjectCard from '../components/ProjectCard';
 import { resumeData } from '../data/resume';
-import { Link } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
 
 const Home = () => {
-    // Only show featured projects on home page
-    const featuredProjects = resumeData.projects.filter(p => p.featured !== false).slice(0, 3);
+  const featuredProjects = resumeData.projects.filter((project) => project.featured);
 
-    return (
-        <div className="min-h-screen bg-white">
-            <Hero />
+  return (
+    <div>
+      <Hero />
 
-            {/* Featured Projects Section */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-                <div className="flex justify-between items-end mb-12">
-                    <div>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-2">Selected Works</h2>
-                        <p className="text-slate-600">Engineering data for scale and intelligence.</p>
-                    </div>
-                    <Link to="/projects" className="hidden sm:flex items-center gap-2 text-indigo-600 font-semibold hover:gap-3 transition-all">
-                        View All Projects <FaArrowRight />
-                    </Link>
+      <section className="page-shell pt-0">
+        <div className="page-content space-y-8">
+          <div className="section-shell">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <span className="section-kicker">Why this portfolio works for data roles</span>
+                <h2 className="section-title mt-4">Relevant stack. Real scope. Clear delivery.</h2>
+              </div>
+              <p className="max-w-2xl text-sm leading-7 text-brand-muted">
+                I am optimizing this site for recruiters, hiring managers, and technical reviewers who
+                want evidence of production-minded data engineering work without inflated claims.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {resumeData.featuredStats.map((item) => (
+                <div key={item.value} className="metric-card">
+                  <div className="text-lg font-semibold text-white">{item.value}</div>
+                  <p className="mt-3 text-sm leading-7 text-brand-muted">{item.label}</p>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Project cards with short descriptions */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {featuredProjects.map((project, index) => (
-                        <ProjectCard key={index} project={project} index={index} showFullDescription={false} />
-                    ))}
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="section-shell">
+              <span className="section-kicker">Selected work</span>
+              <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <h2 className="section-title">Flagship data engineering projects.</h2>
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-brand-muted">
+                    Each featured build highlights a different strength: lakehouse architecture,
+                    streaming-plus-batch operations, and distributed Spark analytics.
+                  </p>
                 </div>
+                <Link to="/projects" className="eyebrow-link inline-flex items-center gap-2">
+                  View all case studies <FaArrowRight size={12} />
+                </Link>
+              </div>
 
-                <div className="mt-12 text-center sm:hidden">
-                    <Link to="/projects" className="inline-flex items-center gap-2 text-indigo-600 font-semibold">
-                        View All Projects <FaArrowRight />
-                    </Link>
-                </div>
-            </section>
+              <div className="mt-8 grid gap-6 xl:grid-cols-2">
+                {featuredProjects.slice(0, 2).map((project, index) => (
+                  <ProjectCard
+                    key={project.title}
+                    project={project}
+                    index={index}
+                    showFullDescription={false}
+                  />
+                ))}
+              </div>
+            </div>
 
-            {/* Skills/Competencies Overview */}
-            <section className="py-24 bg-slate-50 relative overflow-hidden">
-                {/* Decorative Blur */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full max-w-7xl">
-                    <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl"></div>
-                    <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl"></div>
-                </div>
+            <div className="section-shell">
+              <span className="section-kicker">Professional profile</span>
+              <h2 className="section-title mt-4">What I bring to a data team.</h2>
+              <div className="mt-6 space-y-4">
+                {resumeData.profileHighlights.map((item) => (
+                  <div key={item.title} className="surface-panel">
+                    <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-brand-muted">{item.description}</p>
+                  </div>
+                ))}
+              </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-12">Core Competencies</h2>
-                    <div className="flex flex-wrap justify-center gap-12">
-                        {resumeData.skills.slice(0, 8).map((skill) => {
-                            const Icon = skill.icon;
-                            return (
-                                <div key={skill.name} className="flex flex-col items-center gap-3">
-                                    <div className="text-4xl hover:scale-110 transition-transform duration-300">
-                                        <Icon style={{ color: skill.color }} />
-                                    </div>
-                                    <span className="text-sm font-semibold text-slate-600">
-                                        {skill.name}
-                                    </span>
-                                </div>
-                            );
-                        })}
-                    </div>
-                    <div className="mt-16">
-                        <Link
-                            to="/skills"
-                            className="px-8 py-3 rounded-full font-semibold text-slate-900 bg-white border border-slate-300 shadow-sm hover:shadow-md hover:bg-slate-50 transition-all"
-                        >
-                            Explore Full Arsenal
-                        </Link>
-                    </div>
-                </div>
-            </section>
+              <div className="soft-line my-6" />
+
+              <div className="flex flex-wrap gap-2">
+                {resumeData.experience[0].stack.map((item) => (
+                  <span key={item} className="pill">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="section-shell"
+          >
+            <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+              <div>
+                <span className="section-kicker">Capabilities</span>
+                <h2 className="section-title mt-4">From ingestion to serving layers.</h2>
+                <p className="mt-4 text-sm leading-7 text-brand-muted">
+                  My strongest portfolio material sits around pipeline engineering, warehouse-ready
+                  models, validation, and cloud execution. AI stays in the background as a useful
+                  accelerator where it genuinely helps.
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {resumeData.focusAreas.map((area) => (
+                  <div key={area.title} className="metric-card">
+                    <div className="text-base font-semibold text-white">{area.title}</div>
+                    <p className="mt-3 text-sm leading-7 text-brand-muted">{area.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
-    );
+      </section>
+    </div>
+  );
 };
 
 export default Home;

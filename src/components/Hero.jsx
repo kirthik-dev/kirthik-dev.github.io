@@ -1,53 +1,83 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { resumeData } from '../data/resume';
 
 const Hero = () => {
-    return (
-        <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white">
+  return (
+    <section className="page-shell min-h-screen">
+      <div className="page-content grid items-center gap-10 lg:grid-cols-[1.25fr_0.75fr]">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="relative"
+        >
+          <span className="section-kicker">{resumeData.hero.eyebrow}</span>
+          <h1 className="mt-6 max-w-4xl text-balance font-display text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+            {resumeData.hero.headline}
+          </h1>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-brand-muted">
+            {resumeData.hero.description}
+          </p>
 
-            {/* Colorful Background Mesh */}
-            <div className="absolute inset-0 z-0 opacity-40">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow"></div>
-                <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow delay-1000"></div>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <Link to="/projects" className="button-primary gap-2">
+              Explore projects <FaArrowRight size={13} />
+            </Link>
+            <Link to="/contact" className="button-secondary">
+              Contact for roles
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {resumeData.hero.metrics.map((metric) => (
+              <div key={metric.label} className="metric-card">
+                <div className="text-2xl font-semibold text-white">{metric.value}</div>
+                <div className="mt-2 text-sm leading-6 text-brand-muted">{metric.label}</div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="section-shell relative overflow-hidden"
+        >
+          <div className="absolute -right-14 top-8 h-40 w-40 rounded-full bg-cyan-300/10 blur-3xl" />
+          <div className="absolute -bottom-10 left-6 h-32 w-32 rounded-full bg-amber-300/10 blur-3xl" />
+
+          <div className="relative">
+            <div className="text-xs uppercase tracking-[0.34em] text-brand-muted">
+              Why teams hire me
+            </div>
+            <div className="mt-4 space-y-5">
+              {resumeData.focusAreas.map((item) => (
+                <div key={item.title} className="surface-panel">
+                  <div className="text-sm uppercase tracking-[0.24em] text-cyan-200">
+                    {item.title}
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-brand-muted">{item.description}</p>
+                </div>
+              ))}
             </div>
 
-            <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <span className="inline-block py-1 px-3 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-sm font-semibold mb-6 shadow-sm">
-                        Data Engineer
-                    </span>
+            <div className="soft-line my-6" />
 
-                    <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-tight">
-                        Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">Data</span> Pipelines <br />
-                        <span className="text-slate-900">That Scale.</span>
-                    </h1>
-
-                    <p className="mt-8 text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-12">
-                        Data Engineer with more than 1.8 years of experience in ETL pipelines, data quality frameworks, and Agentic AI development. Open to new opportunities.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Link
-                            to="/projects"
-                            className="px-8 py-3 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5"
-                        >
-                            View My Work
-                        </Link>
-                        <Link
-                            to="/contact"
-                            className="px-8 py-3 rounded-full font-semibold text-slate-900 border border-slate-300 bg-white hover:bg-slate-50 hover:shadow-md transition-all duration-200"
-                        >
-                            Get in Touch
-                        </Link>
-                    </div>
-                </motion.div>
+            <div className="flex flex-wrap gap-2">
+              {resumeData.skills.slice(0, 6).map((skill) => (
+                <span key={skill.name} className="pill">
+                  {skill.name}
+                </span>
+              ))}
             </div>
-        </section>
-    );
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

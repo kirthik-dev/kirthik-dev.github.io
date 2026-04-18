@@ -1,74 +1,77 @@
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { FaGithub } from 'react-icons/fa';
 
 const ProjectCard = ({ project, index = 0, showFullDescription = false }) => {
-    const Icon = project.icon;
-    const descriptionArray = Array.isArray(project.description) ? project.description : [project.description];
+  const Icon = project.icon;
 
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 border border-slate-200"
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: index * 0.08 }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="section-shell group flex h-full flex-col"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <div className="text-xs uppercase tracking-[0.3em] text-cyan-200">{project.category}</div>
+          <h3 className="mt-3 text-2xl font-semibold text-white">{project.title}</h3>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-3 text-cyan-200 transition duration-300 group-hover:border-cyan-300/30 group-hover:text-cyan-100">
+          {Icon ? <Icon size={22} /> : null}
+        </div>
+      </div>
+
+      <p className="mt-5 text-sm leading-7 text-brand-muted">{project.impact}</p>
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        {project.metrics.map((metric) => (
+          <span key={metric} className="pill">
+            {metric}
+          </span>
+        ))}
+      </div>
+
+      {showFullDescription ? (
+        <ul className="mt-6 space-y-3 text-sm leading-7 text-brand-muted">
+          {project.description.map((item) => (
+            <li key={item} className="flex items-start gap-3">
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-200" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-6 text-sm leading-7 text-brand-muted">{project.shortDescription}</p>
+      )}
+
+      <div className="soft-line my-6" />
+
+      <div className="flex flex-wrap gap-2">
+        {project.tech.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs font-medium text-slate-200"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-6 flex items-center justify-between gap-4">
+        <p className="text-xs leading-6 text-brand-muted">{project.note}</p>
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-white transition hover:border-cyan-300/30 hover:text-cyan-100"
         >
-            {/* Header with Icon */}
-            <div className="relative h-28 w-full overflow-hidden bg-gradient-to-br from-indigo-50 to-pink-50 p-6 flex items-center justify-center border-b border-slate-200">
-                <div className="text-5xl text-indigo-400 group-hover:scale-110 transition-transform duration-300 z-10">
-                    {Icon ? <Icon className="group-hover:text-indigo-600 transition-colors duration-300" /> : null}
-                </div>
-            </div>
-
-            <div className="p-6 flex-1 flex flex-col">
-                {/* Title and Links */}
-                <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                        {project.title}
-                    </h3>
-                    <div className="flex space-x-2 text-slate-400 flex-shrink-0">
-                        {project.github && (
-                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors p-1.5 hover:bg-slate-100 rounded-full">
-                                <FaGithub size={18} />
-                            </a>
-                        )}
-                        {project.demo && (
-                            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition-colors p-1.5 hover:bg-slate-100 rounded-full">
-                                <FaExternalLinkAlt size={16} />
-                            </a>
-                        )}
-                    </div>
-                </div>
-
-                {/* Description */}
-                {showFullDescription ? (
-                    // Full description with bullet points
-                    <ul className="space-y-2 mb-4 flex-1">
-                        {descriptionArray.map((item, i) => (
-                            <li key={i} className="text-slate-600 text-sm leading-relaxed flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full mt-2 flex-shrink-0"></span>
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    // Short description for card preview
-                    <p className="text-slate-600 text-sm mb-4 leading-relaxed flex-1">
-                        {project.shortDescription || descriptionArray[0]}
-                    </p>
-                )}
-
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-100">
-                    {project.tech && project.tech.map((tag) => (
-                        <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 font-medium border border-slate-200 group-hover:bg-indigo-50 group-hover:text-indigo-600 group-hover:border-indigo-100 transition-colors">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-            </div>
-        </motion.div>
-    );
+          <FaGithub size={15} />
+          GitHub
+        </a>
+      </div>
+    </motion.article>
+  );
 };
 
 export default ProjectCard;

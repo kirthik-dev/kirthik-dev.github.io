@@ -1,76 +1,77 @@
-import { resumeData } from '../data/resume';
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { resumeData } from '../data/resume';
 
 const About = () => {
-    return (
-        <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto bg-white">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mb-16 text-center"
-            >
-                <h1 className="text-4xl font-bold text-slate-900 mb-6">About Me</h1>
-                <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                    {resumeData.summary}
-                </p>
-            </motion.div>
+  return (
+    <section className="page-shell">
+      <div className="page-content space-y-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="section-shell"
+        >
+          <span className="section-kicker">About</span>
+          <h1 className="section-title mt-4">A data engineer focused on durable systems, not demo-only wins.</h1>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-brand-muted">{resumeData.summary}</p>
+        </motion.div>
 
-            {/* Experience Section */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-            >
-                <div className="flex items-center gap-3 mb-8 justify-center">
-                    <FaBriefcase className="text-indigo-600 text-2xl" />
-                    <h2 className="text-2xl font-bold text-slate-900">Professional Experience</h2>
-                </div>
-
-                <div className="space-y-6">
-                    {resumeData.experience.map((exp, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: idx * 0.1 }}
-                            viewport={{ once: true }}
-                            className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow"
-                        >
-                            {/* Header: Role + Date */}
-                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
-                                <h3 className="text-xl font-bold text-slate-900">{exp.role}</h3>
-                                <span className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-medium">
-                                    <FaCalendarAlt className="text-xs" />
-                                    {exp.duration}
-                                </span>
-                            </div>
-
-                            {/* Company + Location */}
-                            <div className="flex flex-wrap items-center gap-4 mb-4">
-                                <p className="text-indigo-600 font-medium">{exp.company}</p>
-                                <span className="flex items-center gap-1 text-sm text-slate-500">
-                                    <FaMapMarkerAlt className="text-xs" />
-                                    {exp.location}
-                                </span>
-                            </div>
-
-                            {/* Description */}
-                            <ul className="space-y-2">
-                                {exp.description.map((item, i) => (
-                                    <li key={i} className="text-sm text-slate-600 leading-relaxed flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full mt-2 flex-shrink-0"></span>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    ))}
-                </div>
-            </motion.div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {resumeData.profileHighlights.map((item) => (
+            <div key={item.title} className="surface-panel">
+              <h2 className="text-xl font-semibold text-white">{item.title}</h2>
+              <p className="mt-4 text-sm leading-7 text-brand-muted">{item.description}</p>
+            </div>
+          ))}
         </div>
-    );
+
+        <div className="section-shell">
+          <span className="section-kicker">Experience</span>
+          <h2 className="section-title mt-4">Recent roles and hands-on delivery.</h2>
+
+          <div className="mt-8 space-y-6">
+            {resumeData.experience.map((role, index) => (
+              <motion.article
+                key={role.company}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className="surface-panel"
+              >
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                  <div>
+                    <div className="text-xs uppercase tracking-[0.3em] text-cyan-200">{role.company}</div>
+                    <h3 className="mt-3 text-2xl font-semibold text-white">{role.role}</h3>
+                    <p className="mt-2 text-sm text-brand-muted">
+                      {role.location} | {role.duration}
+                    </p>
+                    <p className="mt-4 max-w-3xl text-sm leading-7 text-brand-muted">{role.summary}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 lg:max-w-xs lg:justify-end">
+                    {role.stack.map((item) => (
+                      <span key={item} className="pill">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <ul className="mt-6 space-y-3">
+                  {role.description.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm leading-7 text-brand-muted">
+                      <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-200" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default About;

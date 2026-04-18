@@ -1,34 +1,51 @@
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { resumeData } from '../data/resume';
 
 const Footer = () => {
-    return (
-        <footer className="bg-slate-50 border-t border-slate-200 py-8 mt-auto">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row justify-between items-center">
-                    <div className="mb-4 md:mb-0">
-                        <h3 className="text-lg font-bold text-slate-900">Kirthik</h3>
-                        <p className="text-slate-500 text-sm">Data Engineer & AI Enthusiast</p>
-                    </div>
+  return (
+    <footer className="border-t border-white/10 bg-slate-950/80">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div>
+          <div className="font-display text-3xl text-white">{resumeData.name}</div>
+          <p className="mt-2 max-w-xl text-sm leading-7 text-brand-muted">
+            Data Engineer focused on pipelines, warehouse models, data quality, and analytics systems that stay useful after the demo.
+          </p>
+        </div>
 
-                    <div className="flex space-x-6">
-                        <a href="https://github.com" className="text-slate-500 hover:text-indigo-600 transition-colors">
-                            <FaGithub size={20} />
-                        </a>
-                        <a href="https://linkedin.com" className="text-slate-500 hover:text-indigo-600 transition-colors">
-                            <FaLinkedin size={20} />
-                        </a>
-                        <a href="https://twitter.com" className="text-slate-500 hover:text-indigo-600 transition-colors">
-                            <FaTwitter size={20} />
-                        </a>
-                    </div>
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href={`mailto:${resumeData.contact.email}`}
+            className="button-secondary gap-2"
+          >
+            <FaEnvelope size={14} />
+            Email
+          </a>
+          <a
+            href={resumeData.contact.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="button-secondary gap-2"
+          >
+            <FaLinkedin size={14} />
+            LinkedIn
+          </a>
+          <a
+            href={resumeData.contact.github}
+            target="_blank"
+            rel="noreferrer"
+            className="button-secondary gap-2"
+          >
+            <FaGithub size={14} />
+            GitHub
+          </a>
+        </div>
+      </div>
 
-                    <div className="mt-4 md:mt-0 text-sm text-slate-500">
-                        © {new Date().getFullYear()} Kirthik. All rights reserved.
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
+      <div className="border-t border-white/10 px-4 py-4 text-center text-xs uppercase tracking-[0.3em] text-brand-muted">
+        Copyright {new Date().getFullYear()} {resumeData.name}
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

@@ -1,79 +1,68 @@
-import { resumeData } from '../data/resume';
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaCertificate } from 'react-icons/fa';
+import { resumeData } from '../data/resume';
 
 const Learning = () => {
-    return (
-        <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mb-12"
-            >
-                <h1 className="text-4xl font-bold text-slate-900 mb-4">Learning Journey</h1>
-                <p className="text-slate-600 max-w-2xl">
-                    My academic background and continuous professional development.
-                </p>
-            </motion.div>
+  return (
+    <section className="page-shell">
+      <div className="page-content space-y-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="section-shell"
+        >
+          <span className="section-kicker">Credentials</span>
+          <h1 className="section-title mt-4">Education, training, and the areas I am sharpening now.</h1>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-brand-muted">
+            The academic and certification story supports the portfolio, but the main weight stays
+            on applied data engineering work and project execution.
+          </p>
+        </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Education Section */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 }}
-                >
-                    <div className="flex items-center gap-3 mb-6">
-                        <FaGraduationCap className="text-indigo-600 text-2xl" />
-                        <h2 className="text-2xl font-bold text-slate-900">Education</h2>
-                    </div>
-
-                    <div className="space-y-6">
-                        {resumeData.education.map((edu, idx) => (
-                            <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-                                <h3 className="text-xl font-bold text-slate-900">{edu.institution}</h3>
-                                <p className="text-indigo-600 font-medium mt-1">{edu.degree}</p>
-                                <p className="text-sm text-slate-500 mt-2">{edu.duration}</p>
-                                <div className="mt-4 pt-4 border-t border-slate-200">
-                                    <p className="text-sm text-slate-600">
-                                        <span className="font-semibold text-slate-900">Coursework:</span> {edu.coursework}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
-
-                {/* Certifications Section */}
-                <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 }}
-                >
-                    <div className="flex items-center gap-3 mb-6">
-                        <FaCertificate className="text-pink-600 text-2xl" />
-                        <h2 className="text-2xl font-bold text-slate-900">Certifications</h2>
-                    </div>
-
-                    <div className="space-y-6">
-                        {resumeData.certifications.map((cert, idx) => (
-                            <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-                                <h3 className="text-xl font-bold text-slate-900">{cert.name}</h3>
-                                <p className="text-pink-600 font-medium mt-1">{cert.issuer}</p>
-                                <p className="text-sm text-slate-500 mt-2">{cert.date}</p>
-                                <div className="mt-4 pt-4 border-t border-slate-200">
-                                    <p className="text-sm text-slate-600">
-                                        {cert.details}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="section-shell">
+            <span className="section-kicker">Education</span>
+            <div className="mt-6 space-y-4">
+              {resumeData.education.map((item) => (
+                <div key={item.institution} className="surface-panel">
+                  <h2 className="text-2xl font-semibold text-white">{item.institution}</h2>
+                  <p className="mt-2 text-sm uppercase tracking-[0.24em] text-cyan-200">{item.degree}</p>
+                  <p className="mt-4 text-sm text-brand-muted">{item.duration}</p>
+                  <p className="mt-4 text-sm leading-7 text-brand-muted">{item.coursework}</p>
+                </div>
+              ))}
             </div>
+          </div>
+
+          <div className="section-shell">
+            <span className="section-kicker">Certification</span>
+            <div className="mt-6 space-y-4">
+              {resumeData.certifications.map((item) => (
+                <div key={item.name} className="surface-panel">
+                  <h2 className="text-2xl font-semibold text-white">{item.name}</h2>
+                  <p className="mt-2 text-sm uppercase tracking-[0.24em] text-cyan-200">{item.issuer}</p>
+                  <p className="mt-4 text-sm text-brand-muted">{item.date}</p>
+                  <p className="mt-4 text-sm leading-7 text-brand-muted">{item.details}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-    );
+
+        <div className="section-shell">
+          <span className="section-kicker">Current focus</span>
+          <h2 className="section-title mt-4">What I am actively improving next.</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {resumeData.learningFocus.map((item) => (
+              <div key={item} className="metric-card">
+                <p className="text-sm leading-7 text-brand-muted">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Learning;

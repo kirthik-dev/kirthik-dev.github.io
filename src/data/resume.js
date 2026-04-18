@@ -1,198 +1,298 @@
-import { FaPython, FaDatabase, FaAws, FaDocker, FaLinux, FaBrain, FaServer, FaChartLine, FaGitAlt } from 'react-icons/fa';
-import { SiApachespark, SiGooglecloud, SiSnowflake, SiApacheairflow, SiDbt, SiPandas, SiNumpy, SiFastapi, SiSqlalchemy, SiApachehadoop, SiApachekafka } from 'react-icons/si';
+import {
+  FaChartLine,
+  FaDatabase,
+  FaDocker,
+  FaGitAlt,
+  FaPython,
+  FaServer,
+} from 'react-icons/fa';
+import {
+  SiApacheairflow,
+  SiApachekafka,
+  SiApachespark,
+  SiDbt,
+  SiFastapi,
+  SiGooglecloud,
+  SiPostgresql,
+  SiSnowflake,
+} from 'react-icons/si';
 
 export const resumeData = {
-    name: "Kirthik B",
-    title: "Data Engineer",
-    contact: {
-        phone: "+91 8870914014",
-        email: "kirthik0071@gmail.com",
-        linkedin: "https://www.linkedin.com/in/kirthik-b-646723214/",
-        github: "https://github.com/kirthik-dev",
-        portfolio: "https://kirthik-dev.github.io",
-        location: "India"
+  name: 'Kirthik B',
+  title: 'Data Engineer',
+  location: 'India',
+  contact: {
+    phone: '+91 8870914014',
+    email: 'kirthik0071@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/kirthik-b-646723214/',
+    github: 'https://github.com/kirthik-dev',
+    portfolio: 'https://kirthik-dev.github.io',
+    location: 'India',
+  },
+  hero: {
+    eyebrow: 'Available for data engineering roles',
+    headline: 'Building reliable data pipelines, warehouse models, and analytics systems that hold up in production.',
+    description:
+      'Data Engineer with 2+ years of hands-on experience across PySpark, SQL, Snowflake, dbt, Azure, and GCP. I focus on clean ingestion, trustworthy transformations, quality-first delivery, and serving data products that teams can actually use.',
+    metrics: [
+      { value: '2+ years', label: 'Production data engineering experience' },
+      { value: '~40%', label: 'Faster dataset onboarding through metadata-driven quality' },
+      { value: '50+ hrs', label: 'Manual mapping work saved through ETL automation' },
+      { value: '3 flagship builds', label: 'Strong portfolio case studies for data roles' },
+    ],
+  },
+  summary:
+    'I build ETL and ELT pipelines, warehouse-ready models, and data quality workflows for teams that need dependable analytics foundations. My strongest work sits at the intersection of Python, SQL, PySpark, Snowflake, dbt, and cloud data platforms, with AI used carefully as a supporting accelerator rather than the headline.',
+  profileHighlights: [
+    {
+      title: 'Production-minded data engineering',
+      description:
+        'I design for ingestion, transformation, validation, serving, and maintenance instead of treating pipelines as one-off scripts.',
     },
-    summary: "Data Engineer with more than 1.8 years of hands-on experience building ETL pipelines using PySpark and GCP, and developing Agentic AI solutions. Worked on data quality frameworks, metadata-driven profiling systems, dbt automation, and LLM-based workflow automation. Familiar with Spark optimization and graph-based metadata modeling. Currently looking for new opportunities to grow and contribute to data engineering and AI initiatives.",
-
-    skillCategories: [
-        {
-            category: "Programming & Development",
-            skills: ["Python", "SQL (CTEs, Window Functions)", "pandas", "NumPy", "FastAPI", "SQLAlchemy", "Git"]
-        },
-        {
-            category: "Big Data & Cloud",
-            skills: ["Apache Spark", "PySpark", "Spark SQL", "GCP", "Dataproc", "BigQuery", "Snowflake", "GCS", "HDFS", "Airflow (Cloud Composer)"]
-        },
-        {
-            category: "Data Engineering",
-            skills: ["ETL/ELT Pipelines", "Data Quality", "Data Profiling", "Data Modeling", "dbt", "Dgraph (Graph DB)"]
-        },
-        {
-            category: "DevOps & Tools",
-            skills: ["Docker", "Linux", "HDFS CLI", "Environment Management", "Pytest", "Log4j"]
-        },
-        {
-            category: "AI & Automation",
-            skills: ["Agentic AI", "Autogen", "LangChain", "LLM-based Workflow Automation"]
-        }
-    ],
-
-    skills: [
-        { name: "Python", icon: FaPython, color: "#3776AB" },
-        { name: "PySpark", icon: SiApachespark, color: "#E25A1C" },
-        { name: "SQL", icon: FaDatabase, color: "#336791" },
-        { name: "Hadoop", icon: SiApachehadoop, color: "#66CCFF" },
-        { name: "GCP", icon: SiGooglecloud, color: "#4285F4" },
-        { name: "BigQuery", icon: SiGooglecloud, color: "#4285F4" },
-        { name: "Airflow", icon: SiApacheairflow, color: "#017CEE" },
-        { name: "Snowflake", icon: SiSnowflake, color: "#29B5E8" },
-        { name: "dbt", icon: SiDbt, color: "#FF694B" },
-        { name: "Docker", icon: FaDocker, color: "#2496ED" },
-        { name: "Linux", icon: FaLinux, color: "#FCC624" },
-        { name: "pandas", icon: SiPandas, color: "#150458" },
-        { name: "NumPy", icon: SiNumpy, color: "#013243" },
-        { name: "FastAPI", icon: SiFastapi, color: "#009688" },
-        { name: "Git", icon: FaGitAlt, color: "#F05032" },
-    ],
-
-    experience: [
-        {
-            role: "Associate Data Engineer",
-            company: "YLogx Private Limited",
-            location: "Remote",
-            duration: "Aug 2024 – Present",
-            description: [
-                "Built a PySpark-driven production data quality engine handling 10M+ records/hour with 40+ validation rules, significantly improving data accuracy.",
-                "Designed a metadata-based profiling system tracking 25+ quality metrics across 500+ tables, enabling automated monitoring and anomaly detection.",
-                "Developed a Dgraph-backed metadata service modeling 500+ schema relationships across 12 databases for real-time lineage and dependency insights.",
-                "Implemented LLM-assisted SQL and dbt automation workflows to streamline complex transformation logic and reduce manual effort."
-            ]
-        },
-        {
-            role: "Research Intern – Population Forecasting",
-            company: "NIT Trichy",
-            location: "Trichy, Tamil Nadu",
-            duration: "Jun 2023 – Jul 2023",
-            description: [
-                "Analyzed population trends near nuclear facilities using Python, pandas, NumPy, and scikit-learn to support long-term planning.",
-                "Enhanced regression performance using K-Fold Cross Validation and GridSearchCV, achieving a 10–15% reduction in RMSE.",
-                "Forecasted a projected 12% annual population growth within a 10 km region, aiding infrastructure planning for 150K+ residents."
-            ]
-        }
-    ],
-
-    education: [
-        {
-            institution: "NIT Tiruchirappalli",
-            degree: "B.Tech in Mechanical Engineering (Minor in Computer Applications)",
-            duration: "Nov 2020 – May 2024",
-            coursework: "Data Structures, Data Analytics, Big Data Analytics, Machine Learning, Operating Systems"
-        }
-    ],
-
-    projects: [
-        {
-            title: "Lending Club Risk Assessment Pipeline",
-            tech: ["PySpark", "Dataproc", "Hive", "Pytest", "Log4j"],
-            shortDescription: "A PySpark Big Data project implementing a robust ETL pipeline to cleanse raw customer and loan data, calculate a crucial weighted Loan Score (45% default history, 35% financial health, 20% repayment history), and provision secure, queryable data structures for downstream consumption.",
-            description: [
-                "Built an efficient, scalable data pipeline to analyze customer and loan data, calculating a risk-factor Loan Score for applicants.",
-                "Extracted data from massive raw files to create four fundamental datasets: customers_data, loans_data, loan_repayments, and loan_defaulters.",
-                "Generated unique emp_id using SHA-2 cryptographic hash function with concat_ws across nine key customer columns.",
-                "Implemented comprehensive data cleaning: schema enforcement, null handling, duplicate removal, and regex-based string standardization.",
-                "Created bad data management process to isolate member IDs with multiple records, preparing files for upstream correction.",
-                "Stored final cleaned data in CSV and Parquet formats, accessible via Permanent External Tables and Consolidated Views.",
-                "Calculated weighted Loan Score based on: Defaulters History (45%), Financial Health (35%), and Repayment History (20%)."
-            ],
-            github: "https://github.com/kirthik-dev/Lending-Club-Loan-Analytics-Pipeline",
-            icon: FaChartLine,
-            featured: true
-        },
-        {
-            title: "Olist E-commerce Analytics Pipeline",
-            tech: ["PySpark", "HDFS", "GCS", "Parquet", "Hive", "Python"],
-            shortDescription: "A comprehensive data engineering and analytics solution transforming raw transactional data from a Brazilian ecommerce platform into actionable business insights, demonstrating expertise in data ingestion, processing, cleaning, and exploratory analysis.",
-            description: [
-                "Built end-to-end ETL workflow automating extraction of complex datasets, transformation into unified data model, and loading into analyzable formats.",
-                "Implemented advanced data cleaning: missing value handling, outlier detection, consistency checks, and normalization for high-quality datasets.",
-                "Engineered features including customer lifetime value, order frequency, and product popularity to enrich downstream analytics.",
-                "Performed exploratory data analysis to uncover trends, seasonality, customer behaviors, product performance, and operational bottlenecks.",
-                "Delivered curated datasets (Parquet, Hive, CSV) for dashboards covering 27 Brazilian states with 99.8% data completeness.",
-                "Improved runtime by 35% through shuffle partition tuning and broadcast join optimization."
-            ],
-            github: "https://github.com/kirthik-dev/olist-ecommerce-analytics-pipeline",
-            icon: FaServer,
-            featured: true
-        },
-        {
-            title: "NYC Yellow Taxi Trip GCP Pipeline",
-            tech: ["GCP", "BigQuery", "Airflow", "PySpark", "Cloud Composer", "Cloud Storage"],
-            shortDescription: "A robust, production-ready data engineering project leveraging Python and Google Cloud Platform to process, analyze, and visualize 77M+ taxi trip records with automated ETL processes and geospatial analysis capabilities.",
-            description: [
-                "Built cloud-native architecture using Google Cloud Storage and BigQuery to handle ingest, storage, and querying of 77M+ taxi records.",
-                "Implemented 4-layer data architecture: Landing (GCS), Processing (HDFS), Curated (GCS), Serving (BigQuery).",
-                "Automated ETL processes for extracting raw data, transforming/cleaning geospatial coordinates, and loading into analytics-ready tables.",
-                "Cleaned 77M records, removing 5M invalid entries, and created analytical features (tip %, distance buckets, time-of-day segments).",
-                "Integrated geospatial analysis including pickup/drop-off hotspot analysis, route popularity, and duration/distance profiling.",
-                "Automated monthly ingestion using Cloud Composer (Airflow) with modular, extensible code design."
-            ],
-            github: "https://github.com/kirthik-dev/NYC-Yellow-Taxi-Trip-Data-GCP-Pipeline",
-            icon: FaDatabase,
-            featured: true
-        },
-        {
-            title: "Spotify User Behavior Analytics Pipeline",
-            tech: ["Python", "Data Analytics", "Machine Learning", "Visualization"],
-            shortDescription: "A complete data analytics pipeline focused on Spotify user behavior data, uncovering trends in listening habits including genre preferences, session durations, and skip rates.",
-            description: [
-                "Built data extraction and ingestion modules for collecting raw music listening logs and user interaction data.",
-                "Implemented preprocessing and cleaning to remove noise, handle missing values, and standardize data for analysis.",
-                "Applied Python-driven statistical techniques and ML to uncover trends in genre preferences, repeat listens, and session durations.",
-                "Generated detailed reports and visualizations: heatmaps, time-series charts, and dashboards for user engagement insights.",
-                "Extensible for recommendation systems, churn prediction, or targeted marketing campaigns."
-            ],
-            github: "https://github.com/kirthik-dev/Spotify-User-Behavior-Analytics-Pipeline",
-            icon: FaChartLine,
-            featured: false
-        },
-        {
-            title: "Scalable Uber Data Analytics on GCP",
-            tech: ["GCP", "Jupyter Notebook", "Python", "Cloud Storage", "Dataflow"],
-            shortDescription: "A scalable, cloud-based analytics solution for Uber ride data using GCP services, designed to auto-scale with increased data ingestion rates for enterprise-level analytics.",
-            description: [
-                "Built cloud integration using GCP services for data storage, processing, and scaling of large volumes of ride data.",
-                "Implemented data pipeline stages: ingestion via Cloud Storage, transformation with geospatial/temporal features, and advanced analytics.",
-                "Performed exploratory data analysis to uncover surge pricing patterns, trip durations, passenger segments, and operational bottlenecks.",
-                "Created interactive Jupyter Notebook dashboards for sharing findings with decision makers.",
-                "Designed auto-scaling architecture suitable for enterprise-level analytics and forecasting."
-            ],
-            github: "https://github.com/kirthik-dev/Scalable-Uber-Data-Analytics-Pipeline-on-GCP",
-            icon: FaServer,
-            featured: false
-        },
-        {
-            title: "Budget Optimization Tool",
-            tech: ["HTML", "Python", "Jupyter Notebook", "Data Visualization"],
-            shortDescription: "A project combining web development and data science to facilitate budget planning and optimization with interactive visualization and analytical depth.",
-            description: [
-                "Built interactive web interface with HTML for robust visualization and user-friendly forms to capture financial data.",
-                "Developed analytical engine using Python and Jupyter Notebooks for optimization algorithms and scenario analysis.",
-                "Implemented budget allocation features to help users allocate across categories and visualize impact with charts.",
-                "Applied data-driven optimization techniques (linear programming/heuristics) for optimal resource usage.",
-                "Enabled scenario analysis to simulate different expense scenarios and observe potential outcomes."
-            ],
-            github: "https://github.com/kirthik-dev/budget-optimization",
-            icon: FaBrain,
-            featured: false
-        }
-    ],
-
-    certifications: [
-        {
-            name: "Big Data Engineering Masters Program",
-            issuer: "Instructor: Sumit Mittal",
-            date: "Aug 2025 – Present (Ongoing)",
-            details: "Completed: Big Data Fundamentals, Apache Spark (RDDs, DataFrames, SQL), Performance Tuning. Upcoming: Hive, Databricks, ADF, Kafka Streaming, AWS Glue, EMR, Redshift."
-        }
-    ]
+    {
+      title: 'Warehouse and lakehouse thinking',
+      description:
+        'My work consistently moves toward curated models, medallion patterns, dimensional design, and analyst-ready outputs.',
+    },
+    {
+      title: 'Honest automation',
+      description:
+        'I use AI for SQL assistance, workflow acceleration, and rule generation where it helps, without overstating it as autonomous magic.',
+    },
+  ],
+  featuredStats: [
+    {
+      value: 'Snowflake + dbt',
+      label: 'Transformation workflows for production OLAP use cases',
+    },
+    {
+      value: 'PySpark + SQL',
+      label: 'Core stack for pipeline logic, validation, and large-scale processing',
+    },
+    {
+      value: 'Azure + GCP',
+      label: 'Cloud experience spanning lakehouse and distributed batch systems',
+    },
+  ],
+  focusAreas: [
+    {
+      title: 'Pipeline engineering',
+      description:
+        'ETL and ELT flows for ingestion, curation, and analytics-ready serving layers.',
+    },
+    {
+      title: 'Quality and governance',
+      description:
+        'Metadata-driven validation, repeatable checks, and traceable data movement.',
+    },
+    {
+      title: 'Warehouse modeling',
+      description:
+        'Kimball-style marts, fact-dimension modeling, and trusted reporting layers.',
+    },
+    {
+      title: 'Cloud execution',
+      description:
+        'Hands-on delivery across Azure Databricks, ADLS, Snowflake, GCP Dataproc, and Composer.',
+    },
+  ],
+  skillCategories: [
+    {
+      category: 'Data Platforms',
+      emphasis: 'Batch and near-real-time data processing foundations',
+      skills: ['PySpark', 'Spark SQL', 'SQL', 'Python', 'PostgreSQL', 'FastAPI'],
+    },
+    {
+      category: 'Warehousing and Modeling',
+      emphasis: 'Curated analytics structures and transformation workflows',
+      skills: [
+        'Snowflake',
+        'dbt',
+        'Dimensional Modeling',
+        'Star Schema',
+        'OLAP',
+        'Data Warehousing',
+      ],
+    },
+    {
+      category: 'Orchestration and Quality',
+      emphasis: 'Reliable data movement with validation and operational control',
+      skills: [
+        'Apache Airflow',
+        'Great Expectations',
+        'Lakeflow Declarative Pipelines',
+        'CI/CD',
+        'Data Quality',
+        'Monitoring',
+      ],
+    },
+    {
+      category: 'Cloud and Storage',
+      emphasis: 'Cloud-native processing and analytical storage layers',
+      skills: [
+        'Azure Databricks',
+        'ADLS Gen2',
+        'Azure Data Factory',
+        'GCP Dataproc',
+        'BigQuery',
+        'Parquet',
+      ],
+    },
+    {
+      category: 'Supporting Automation',
+      emphasis: 'Useful secondary capabilities that speed up engineering work',
+      skills: [
+        'AI-assisted SQL review',
+        'Metadata-driven rule generation',
+        'Workflow automation',
+        'GitHub Actions',
+      ],
+    },
+  ],
+  skills: [
+    { name: 'Python', icon: FaPython, color: '#8cc8ff' },
+    { name: 'PySpark', icon: SiApachespark, color: '#ff8b66' },
+    { name: 'SQL', icon: FaDatabase, color: '#7ed7c1' },
+    { name: 'Snowflake', icon: SiSnowflake, color: '#80e4ff' },
+    { name: 'dbt', icon: SiDbt, color: '#ff9f70' },
+    { name: 'Airflow', icon: SiApacheairflow, color: '#7ea8ff' },
+    { name: 'Azure', icon: FaServer, color: '#76b4ff' },
+    { name: 'GCP', icon: SiGooglecloud, color: '#95b8ff' },
+    { name: 'PostgreSQL', icon: SiPostgresql, color: '#9bb4ff' },
+    { name: 'FastAPI', icon: SiFastapi, color: '#8ff0c7' },
+    { name: 'Kafka', icon: SiApachekafka, color: '#f2c879' },
+    { name: 'Docker', icon: FaDocker, color: '#8ec5ff' },
+    { name: 'Git', icon: FaGitAlt, color: '#ff8f73' },
+  ],
+  experience: [
+    {
+      role: 'Data Engineer',
+      company: 'YLogx Private Limited',
+      location: 'Remote',
+      duration: 'Aug 2024 - Present',
+      summary:
+        'Client-facing data engineering work spanning metadata-driven quality systems, Snowflake and dbt transformations, and analytics-serving layers.',
+      stack: ['Python', 'PySpark', 'PostgreSQL', 'Snowflake', 'dbt', 'FastAPI'],
+      description: [
+        'Engineered a metadata-driven data quality platform using Python, PySpark, and a PostgreSQL-backed validation engine, reducing new dataset onboarding time by about 40 percent.',
+        'Automated ETL and ELT pipeline generation for schema-mapping workflows, saving more than 50 manual mapping hours per project.',
+        'Developed dbt-to-Snowflake transformation workflows and AI-assisted SQL review flows that improved query quality for production-grade OLAP workloads.',
+        'Built near real-time analytics-serving layers on PostgreSQL and FastAPI for KPI reporting, forecasting use cases, and downstream operational analytics.',
+      ],
+    },
+    {
+      role: 'Research Intern - Population Forecasting',
+      company: 'NIT Trichy',
+      location: 'Trichy, Tamil Nadu',
+      duration: 'Jun 2023 - Jul 2023',
+      summary:
+        'Applied data preparation and statistical forecasting techniques to demographic planning datasets.',
+      stack: ['Python', 'pandas', 'NumPy', 'Forecasting'],
+      description: [
+        'Processed and modeled demographic datasets in Python, building clean analytical inputs for forecasting workflows.',
+        'Identified about 12 percent annual population growth in the study region through statistical modeling and reporting.',
+        'Delivered results through structured analysis and visuals that supported planning discussions around regional infrastructure needs.',
+      ],
+    },
+  ],
+  education: [
+    {
+      institution: 'NIT Tiruchirappalli',
+      degree: 'B.Tech in Mechanical Engineering with a Minor in Computer Applications',
+      duration: 'Nov 2020 - May 2024',
+      coursework:
+        'Data Structures, Data Analytics, Big Data Analytics, Machine Learning, Operating Systems',
+    },
+  ],
+  certifications: [
+    {
+      name: 'Big Data Engineering Masters Program',
+      issuer: 'Trendytech Academy',
+      date: '2025 - Present',
+      details:
+        'Focused on Spark, Databricks, Azure data services, SQL performance, and modern data engineering foundations.',
+    },
+  ],
+  learningFocus: [
+    'Deeper Spark optimization and distributed systems tradeoffs',
+    'Stronger warehouse design patterns for analytics engineering workflows',
+    'Production-quality orchestration, validation, and operational observability',
+  ],
+  projects: [
+    {
+      title: 'Healthcare CDC Pipeline',
+      category: 'Azure Lakehouse / CDC',
+      tech: ['Azure Databricks', 'PySpark', 'Delta Lake', 'ADLS Gen2', 'ADF', 'Event Hubs'],
+      shortDescription:
+        'Snapshot-based CDC pipeline on Azure Databricks with Delta MERGE upserts, medallion layers, and Kimball-style serving models.',
+      impact: '18 healthcare tables ingested into Bronze, CDC-applied Silver, and analytics-ready Gold marts with an auditable trail.',
+      metrics: ['18 source tables', '344K+ rows', '7 Gold aggregations'],
+      description: [
+        'Architected a Bronze-Silver-Gold lakehouse on Azure Databricks using ADLS Gen2 and Delta Lake for synthetic healthcare data.',
+        'Implemented snapshot CDC by comparing day-over-day datasets, publishing change events to Azure Event Hubs, and applying Delta MERGE upserts in the Silver layer.',
+        'Built Kimball-style dimensional models with 4 dimension and 4 fact tables, plus 7 Gold analytics aggregations for downstream reporting use cases.',
+        'Added CI/CD with GitHub Actions, 10 pytest checks, and audit fields such as _event_id and _cdc_operation for traceability and compliance-style reporting.',
+      ],
+      github: 'https://github.com/kirthik-dev',
+      icon: FaServer,
+      featured: true,
+      note: 'CDC is snapshot-based and the dataset is Synthea synthetic healthcare data.',
+    },
+    {
+      title: 'RetailPulse',
+      category: 'Streaming + Batch Lakehouse',
+      tech: ['Kafka', 'Spark Structured Streaming', 'Airflow', 'Great Expectations', 'PostgreSQL'],
+      shortDescription:
+        'Retail data platform combining Kafka streaming, Airflow batch orchestration, Great Expectations validation, and PostgreSQL serving marts.',
+      impact: 'Built for minute-level freshness, operational alerting, and full pipeline traceability across streaming and batch flows.',
+      metrics: ['4 Kafka topics', '6 serving marts', '100% traceability'],
+      description: [
+        'Designed a Bronze-Silver-Gold data platform that ingests retail events from Kafka and reference data from batch loaders into a unified lakehouse flow.',
+        'Standardized current-state Silver tables and enforced validation gates with Great Expectations before publishing downstream Gold outputs.',
+        'Published 6 curated PostgreSQL serving marts and exposed the system through a FastAPI layer and React command-center style interface.',
+        'Maintained full operational traceability with metadata capture, alert tables, and minute-level freshness for monitoring-oriented use cases.',
+      ],
+      github: 'https://github.com/kirthik-dev',
+      icon: FaChartLine,
+      featured: true,
+      note: 'Runs locally with Docker Compose and MinIO rather than on managed cloud infrastructure.',
+    },
+    {
+      title: 'Real-World E-Commerce Analytics Pipeline',
+      category: 'Distributed Batch Analytics',
+      tech: ['PySpark', 'HDFS', 'GCP Dataproc', 'Cloud Composer', 'Hive', 'Parquet'],
+      shortDescription:
+        'Distributed batch ELT pipeline on Spark and Dataproc, joining marketplace entities into a unified analytical fact model.',
+      impact: 'Processed 9 source datasets into enriched analytical outputs with tuned joins, feature engineering, and warehouse-friendly serving formats.',
+      metrics: ['9 source datasets', '99,441+ records', '6+ derived KPI features'],
+      description: [
+        'Built an end-to-end batch ELT workflow on GCP Dataproc that ingests 9 Olist marketplace datasets into HDFS and curated analytical outputs.',
+        'Integrated orders, payments, logistics, reviews, and customer data through a 7-way join into a unified analytical fact structure.',
+        'Improved Spark execution with broadcast joins, adaptive query execution, and tuned shuffle partitions to reduce distributed processing overhead.',
+        'Served the final datasets through Parquet, Hive, and GCS outputs for scalable downstream analytics and warehouse-style consumption.',
+      ],
+      github: 'https://github.com/kirthik-dev/olist-ecommerce-analytics-pipeline',
+      icon: FaDatabase,
+      featured: true,
+      note: 'This project is batch-only Spark processing and is not presented as a streaming or monitoring system.',
+    },
+    {
+      title: 'Lending Club Risk Assessment Pipeline',
+      category: 'Batch ETL and Scoring',
+      tech: ['PySpark', 'Dataproc', 'Hive', 'Parquet', 'Python'],
+      shortDescription:
+        'Batch pipeline for cleansing large loan datasets, isolating bad records, and producing downstream-ready risk scoring outputs.',
+      impact: 'Structured raw lending data into queryable assets and a weighted loan score model for downstream analytical use.',
+      metrics: ['4 core datasets', 'Weighted scoring logic', 'Parquet + Hive outputs'],
+      description: [
+        'Extracted and standardized customer and loan data into reusable analytical datasets for downstream consumption.',
+        'Handled schema enforcement, null treatment, duplicate removal, and bad-record isolation before producing curated outputs.',
+        'Calculated a weighted loan score using default history, financial health, and repayment behavior signals.',
+      ],
+      github: 'https://github.com/kirthik-dev/Lending-Club-Loan-Analytics-Pipeline',
+      icon: FaChartLine,
+      featured: false,
+      note: 'A supporting project in the portfolio, not the main showcase for data engineering applications.',
+    },
+  ],
 };

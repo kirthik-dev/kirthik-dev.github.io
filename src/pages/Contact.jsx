@@ -1,118 +1,131 @@
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPhone, FaGlobe } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin, FaPhone } from 'react-icons/fa';
 import { resumeData } from '../data/resume';
 
+const contactCards = [
+  {
+    label: 'Email',
+    valueKey: 'email',
+    icon: FaEnvelope,
+    href: (value) => `mailto:${value}`,
+  },
+  {
+    label: 'Phone',
+    valueKey: 'phone',
+    icon: FaPhone,
+    href: (value) => `tel:${value}`,
+  },
+  {
+    label: 'LinkedIn',
+    valueKey: 'linkedin',
+    icon: FaLinkedin,
+    href: (value) => value,
+  },
+  {
+    label: 'GitHub',
+    valueKey: 'github',
+    icon: FaGithub,
+    href: (value) => value,
+  },
+];
+
 const Contact = () => {
-    return (
-        <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto flex items-center bg-white">
-            <div className="w-full">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="text-center mb-16"
+  return (
+    <section className="page-shell">
+      <div className="page-content grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="section-shell"
+        >
+          <span className="section-kicker">Contact</span>
+          <h1 className="section-title mt-4">Open to data engineering conversations that need substance, not buzzwords.</h1>
+          <p className="mt-6 text-lg leading-8 text-brand-muted">
+            If you are hiring for data engineering work around pipelines, warehouse models,
+            validation, or analytics-serving systems, email or LinkedIn is the fastest route.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {contactCards.map((item) => {
+              const Icon = item.icon;
+              const value = resumeData.contact[item.valueKey];
+
+              return (
+                <a
+                  key={item.label}
+                  href={item.href(value)}
+                  target={item.label === 'Email' || item.label === 'Phone' ? undefined : '_blank'}
+                  rel={item.label === 'Email' || item.label === 'Phone' ? undefined : 'noreferrer'}
+                  className="metric-card flex items-center gap-4"
                 >
-                    <h1 className="text-4xl font-bold text-slate-900 mb-4">Get in Touch</h1>
-                    <p className="text-slate-600 max-w-xl mx-auto">
-                        Whether you have a question, a project opportunity, or just want to say hi, I'll try my best to get back to you!
-                    </p>
-                </motion.div>
+                  <div className="rounded-2xl border border-white/10 p-4 text-cyan-200">
+                    <Icon size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase tracking-[0.24em] text-brand-muted">
+                      {item.label}
+                    </div>
+                    <div className="mt-2 text-sm font-semibold leading-6 text-white">{value}</div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.08 }}
+          className="section-shell"
+        >
+          <span className="section-kicker">Best fit</span>
+          <h2 className="section-title mt-4">Roles I am optimizing this portfolio for.</h2>
 
-                    {/* Contact Info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200"
-                    >
-                        <h2 className="text-2xl font-bold text-slate-900 mb-8">Contact Info</h2>
-                        <div className="space-y-6">
-                            {/* Phone */}
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                                    <FaPhone size={20} />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-slate-500 font-medium">Phone</p>
-                                    <a href={`tel:${resumeData.contact.phone}`} className="text-slate-900 font-semibold hover:text-green-600 transition-colors">
-                                        {resumeData.contact.phone}
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Email */}
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600">
-                                    <FaEnvelope size={20} />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-slate-500 font-medium">Email</p>
-                                    <a href={`mailto:${resumeData.contact.email}`} className="text-slate-900 font-semibold hover:text-indigo-600 transition-colors">
-                                        {resumeData.contact.email}
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Location */}
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-600">
-                                    <FaMapMarkerAlt size={20} />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-slate-500 font-medium">Location</p>
-                                    <p className="text-slate-900 font-semibold">
-                                        {resumeData.contact.location}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Social Links */}
-                            <div className="flex items-center gap-4 pt-6 mt-6 border-t border-slate-200">
-                                <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors" title="GitHub">
-                                    <FaGithub size={28} />
-                                </a>
-                                <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-600 transition-colors" title="LinkedIn">
-                                    <FaLinkedin size={28} />
-                                </a>
-                                <a href={resumeData.contact.portfolio} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-pink-600 transition-colors" title="Portfolio">
-                                    <FaGlobe size={28} />
-                                </a>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Contact Form */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="bg-white p-8 rounded-2xl shadow-lg border border-slate-200"
-                    >
-                        <form className="space-y-6">
-                            <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-slate-900 mb-2">Name</label>
-                                <input type="text" id="name" className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all text-slate-900 placeholder-slate-400" placeholder="John Doe" />
-                            </div>
-                            <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-slate-900 mb-2">Email</label>
-                                <input type="email" id="email" className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all text-slate-900 placeholder-slate-400" placeholder="john@example.com" />
-                            </div>
-                            <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-slate-900 mb-2">Message</label>
-                                <textarea id="message" rows="4" className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all text-slate-900 placeholder-slate-400" placeholder="Project details..."></textarea>
-                            </div>
-                            <button type="submit" className="w-full py-3 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-0.5 duration-200">
-                                Send Message
-                            </button>
-                        </form>
-                    </motion.div>
-
-                </div>
+          <div className="mt-6 space-y-4">
+            <div className="surface-panel">
+              <div className="text-lg font-semibold text-white">Data Engineer</div>
+              <p className="mt-3 text-sm leading-7 text-brand-muted">
+                Roles centered on ETL and ELT pipelines, Spark processing, warehousing, data quality,
+                and cloud analytics foundations.
+              </p>
             </div>
-        </div>
-    );
+            <div className="surface-panel">
+              <div className="text-lg font-semibold text-white">Analytics or platform-adjacent work</div>
+              <p className="mt-3 text-sm leading-7 text-brand-muted">
+                Teams needing data modeling, Snowflake or dbt transformations, curated marts, and
+                analyst-ready serving layers.
+              </p>
+            </div>
+            <div className="surface-panel">
+              <div className="text-lg font-semibold text-white">Useful secondary edge</div>
+              <p className="mt-3 text-sm leading-7 text-brand-muted">
+                AI-assisted workflow automation where it helps engineering throughput, without
+                changing the core identity away from data engineering.
+              </p>
+            </div>
+          </div>
+
+          <div className="soft-line my-6" />
+
+          <div className="flex flex-wrap gap-3">
+            <a href={`mailto:${resumeData.contact.email}`} className="button-primary">
+              Email me
+            </a>
+            <a
+              href={resumeData.contact.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="button-secondary"
+            >
+              Message on LinkedIn
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default Contact;

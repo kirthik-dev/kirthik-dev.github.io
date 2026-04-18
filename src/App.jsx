@@ -1,16 +1,17 @@
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
 import Footer from './components/Footer';
-import Home from './pages/Home';
+import Navbar from './components/Navbar';
 import About from './pages/About';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
+import Learning from './pages/Learning';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
-import Learning from './pages/Learning';
-import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen text-slate-900 font-sans selection:bg-indigo-600 selection:text-white bg-white">
+    <div className="min-h-screen bg-brand-base text-slate-100 selection:bg-cyan-200 selection:text-slate-950">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

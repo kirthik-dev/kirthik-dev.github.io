@@ -1,41 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Enhanced Light Theme - High Contrast */
-    --bg-primary: #ffffff;
-    --bg-surface: #f8fafc;
-    --text-primary: #0f172a;
-    /* Slate 900 - Darker for better contrast */
-    --text-secondary: #334155;
-    /* Slate 700 - Darker than before */
-    --accent-primary: #4f46e5;
-    /* Indigo 600 - More vibrant */
-    --accent-secondary: #db2777;
-    /* Pink 600 - More vibrant */
-    --border-color: #cbd5e1;
-    /* Slate 300 - More visible */
-    --overlay-color: 255, 255, 255;
-    --overlay-opacity: 0.9;
+    --bg-primary: #07111f;
+    --bg-surface: #101a2d;
+    --bg-surface-alt: #17233a;
+    --text-primary: #ecf4ff;
+    --text-secondary: #93a7c7;
+    --accent-primary: #69d2ff;
+    --accent-secondary: #f0b25f;
+    --border-color: rgba(147, 167, 199, 0.18);
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
     min-height: 100vh;
+    background:
+      radial-gradient(circle at 15% 15%, rgba(105, 210, 255, 0.15), transparent 28%),
+      radial-gradient(circle at 82% 5%, rgba(240, 178, 95, 0.12), transparent 24%),
+      linear-gradient(180deg, #07111f 0%, #091427 45%, #07111f 100%);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8;
+  }
+
+  .page-shell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(147, 167, 199, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(147, 167, 199, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent 88%);
+    pointer-events: none;
+  }
+
+  .page-content {
+    @apply relative z-10 mx-auto max-w-6xl;
+  }
+
+  .section-shell {
+    @apply rounded-[2rem] border border-white/10 bg-[rgba(16,26,45,0.78)] p-6 shadow-glow backdrop-blur md:p-10;
+  }
+
+  .surface-panel {
+    @apply rounded-[1.5rem] border border-white/10 bg-[rgba(23,35,58,0.82)] p-6 backdrop-blur;
+  }
+
+  .section-kicker {
+    @apply inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200;
+  }
+
+  .section-title {
+    @apply font-display text-4xl leading-none text-white sm:text-5xl;
+  }
+
+  .section-copy {
+    @apply text-base leading-7 text-brand-muted sm:text-lg;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-200;
+  }
+
+  .metric-card {
+    @apply rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 shadow-lg backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-white/[0.05];
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-cyan-300 px-6 py-3 text-sm font-semibold text-slate-950 transition duration-300 hover:-translate-y-0.5 hover:bg-cyan-200;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/30 hover:bg-white/[0.06];
+  }
+
+  .soft-line {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent;
+  }
+
+  .eyebrow-link {
+    @apply text-sm font-semibold text-cyan-200 transition duration-300 hover:text-cyan-100;
   }
 }
 
 @layer utilities {
-  .text-glow {
-    text-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+  .text-balance {
+    text-wrap: balance;
   }
 
-  .glass-panel {
-    @apply bg-white/80 backdrop-blur-md border border-slate-200 shadow-sm;
+  .text-fade {
+    color: rgba(236, 244, 255, 0.74);
   }
 }
